@@ -13,11 +13,9 @@ public class PlayerControls : MonoBehaviour
 
     public Transform cameraTransform;
 
-    Quaternion initialRotation;
-
     void Start()
     {
-        initialRotation = transform.localRotation;
+
     }
 
     void Update()
@@ -34,7 +32,7 @@ public class PlayerControls : MonoBehaviour
         turn.y = Mathf.Clamp(turn.y, -minAngle, maxAngle);
 
         cameraTransform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0f);
-        transform.localRotation = initialRotation * Quaternion.Euler(0f, turn.x, 0f);
+        transform.localRotation = Quaternion.Euler(0f, turn.x, 0f);
     }
 
     private void Move()
