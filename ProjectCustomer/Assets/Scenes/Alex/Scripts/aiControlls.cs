@@ -86,7 +86,7 @@ public class aiControlls : MonoBehaviour
         if(locations.Length > 0)
         {
             agent.SetDestination(locations[currentLocationIndex - 1]);
-            currentLocationIndex = (currentLocationIndex + 1) % locations.Length;
+            currentLocationIndex = (currentLocationIndex) % locations.Length;
         }
     }
 }
