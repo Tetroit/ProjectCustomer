@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,12 +24,22 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        OnTriggeredEnter?.Invoke();
-        //Compares whether objects with the assigned tag passes through the trigger
-        CheckTagsEnter(other);
+        Vector3 triggerToPlayer = other.transform.position - transform.position;
 
-        // The trigger is destroyed when you enter it, so its activated only once
-        DestroyTrigger();
+        float dotProduct = Vector3.Dot(transform.forward, triggerToPlayer.normalized);
+
+        if(dotProduct < 0.5f)
+        {
+            OnTriggeredEnter?.Invoke();
+            //Compares whether objects with the assigned tag passes through the trigger
+            CheckTagsEnter(other);
+
+            // The trigger is destroyed when you enter it, so its activated only once
+            DestroyTrigger();
+        } else
+        {
+            Debug.Log("Trigger not activated because the player is not facing the trigger.");
+        } 
     }
 
     private void OnTriggerExit(Collider other)
