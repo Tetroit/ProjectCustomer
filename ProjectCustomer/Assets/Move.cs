@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -10,9 +11,13 @@ public class Move : MonoBehaviour
 
     public Trigger trigger;
 
+    private NavMeshSurface navMeshSurface;
+
     // Start is called before the first frame update
     void Start()
     {
+        navMeshSurface = FindObjectOfType<NavMeshSurface>();
+
         if(trigger != null)
         {
             trigger.OnTriggeredEnter += OntriggerEntered;
@@ -29,6 +34,7 @@ public class Move : MonoBehaviour
     public void OntriggerEntered()
     {
         MoveObject();
+        RefreshNavMesh();
     }
 
     public void OntriggerExited()
@@ -51,6 +57,15 @@ public class Move : MonoBehaviour
         {
             trigger.OnTriggeredEnter -= OntriggerEntered;
             trigger.OnTriggeredExit -= OntriggerExited;
+        }
+    }
+
+    private void RefreshNavMesh()
+    {
+        if(navMeshSurface != null)
+        {
+            navMeshSurface.BuildNavMesh(); // Rebuild the NavMesh
+            Debug.Log("NavMesh baked");
         }
     }
 }
