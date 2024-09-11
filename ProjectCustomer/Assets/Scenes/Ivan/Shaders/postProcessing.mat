@@ -110,8 +110,8 @@ Material:
     - _Metallic: 0
     - _MovementSensitivity: 0.05
     - _NoisePreview: 0
-    - _NoiseResolution: -0.95
-    - _NoiseScale: 0.01
+    - _NoiseResolution: 0
+    - _NoiseScale: 0
     - _NoiseSpeed: 100
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -124,7 +124,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _UseGrainNoise: 0
+    - _UseGrainNoise: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
