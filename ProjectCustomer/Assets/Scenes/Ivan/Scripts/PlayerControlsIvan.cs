@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum InputDevice
+{
+    Keyboard,
+    Joystick
+}
 public class PlayerControlsIvan : MonoBehaviour
 {
     public float mouseSensitivity = 10f;
@@ -10,6 +15,9 @@ public class PlayerControlsIvan : MonoBehaviour
     public float maxAngle = 35f;
     [Range(0f, 1f)]
     public float cameraSmoothness = 0.5f;
+    public bool isMoving;
+
+    public InputDevice inputDevice;
 
     Vector2 turn;
     Vector2 turnTarget;
@@ -49,25 +57,21 @@ public class PlayerControlsIvan : MonoBehaviour
     {
         Vector3 moveDirection = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.W))
+        if (inputDevice == InputDevice.Joystick)
         {
-            moveDirection += transform.forward;
+            moveDirection += Input.GetAxisRaw("Vertical") * transform.forward;
+            moveDirection += Input.GetAxisRaw("Horizontal") * transform.right;
+        }
+        if (inputDevice == InputDevice.Keyboard)
+        {
+            if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward;
+            if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward;
+            if (Input.GetKey(KeyCode.D)) moveDirection += transform.right;
+            if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right;
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveDirection += -transform.right;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            moveDirection += -transform.forward;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDirection += transform.right;
-        }
+        if (moveDirection.magnitude > 0.1f) isMoving = true;
+        else isMoving = false;
 
         moveDirection = moveDirection.normalized * movementSpeed * Time.deltaTime;
 

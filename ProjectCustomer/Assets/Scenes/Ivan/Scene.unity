@@ -1070,6 +1070,7 @@ GameObject:
   - component: {fileID: 1317979757}
   - component: {fileID: 1317979756}
   - component: {fileID: 1317979759}
+  - component: {fileID: 1317979760}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1145,11 +1146,11 @@ Transform:
   m_GameObject: {fileID: 1317979755}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.19, y: 2.97, z: 2.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2071978070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1317979759
 MonoBehaviour:
@@ -1195,6 +1196,79 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1317979760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317979755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08a5db6570937745a89232cf06ed972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 0.5
+  _cooldown: 0
+  XShake:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.39999998
+      inSlope: -0.005561511
+      outSlope: -0.005561511
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.225
+    - serializedVersion: 3
+      time: 1
+      value: 0.3999997
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  YShake:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.07917499
+      outSlope: 0.07917499
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.9388253
+    - serializedVersion: 3
+      time: 0.7594722
+      value: 0.22221613
+      inSlope: -0.1826502
+      outSlope: -0.1826502
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.30353075
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 0.008532524
+      inSlope: -0.60754055
+      outSlope: -0.60754055
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.265932
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  controls: {fileID: 1342390213}
+  _rightSide: 0
 --- !u!224 &1332555665 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4613169215942060041, guid: d7e34915361f788479d30c0a9f33d7de,
@@ -1326,7 +1400,9 @@ MonoBehaviour:
   minAngle: -50
   maxAngle: 70
   cameraSmoothness: 0.5
-  cameraTransform: {fileID: 1317979758}
+  isMoving: 0
+  inputDevice: 0
+  cameraTransform: {fileID: 2071978070}
 --- !u!224 &1356469533 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4613169215942060041, guid: d7e34915361f788479d30c0a9f33d7de,
@@ -1755,6 +1831,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2071978069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071978070}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2071978070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071978069}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.19, y: 2.97, z: 2.53}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1317979758}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2102678636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1877,7 +1985,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1317979758}
+  - {fileID: 2071978070}
   - {fileID: 685355581}
   - {fileID: 365466695}
   - {fileID: 929908643}
