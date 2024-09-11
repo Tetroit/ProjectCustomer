@@ -20,7 +20,7 @@ public class aiControlls : MonoBehaviour
     public Vector3[] locations;
     private int currentLocationIndex = 0;
 
-    // Update is called once per frame
+
     void Update()
     {
         SwitchStates();
