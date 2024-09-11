@@ -97,6 +97,10 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DistanceFac: 100
+    - _DistancePreview: 0
+    - _DistanceScale: 2
+    - _DistanceShift: -0.01
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -104,9 +108,9 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _MovementSensitivity: 0.01
-    - _NoiseResolution: 10
-    - _NoiseScale: 0.003
+    - _MovementSensitivity: 1000
+    - _NoiseResolution: 1
+    - _NoiseScale: 0.02
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
