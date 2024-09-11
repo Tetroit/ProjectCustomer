@@ -1209,27 +1209,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 0.5
-  _cooldown: 0
   XShake:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -0.39999998
-      inSlope: -0.005561511
-      outSlope: -0.005561511
+      value: -0.29999387
+      inSlope: 0.76510084
+      outSlope: 0.76510084
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.225
+      outWeight: 0.24166666
     - serializedVersion: 3
       time: 1
-      value: 0.3999997
-      inSlope: 2
-      outSlope: 2
+      value: 0.30000123
+      inSlope: 1.6905897
+      outSlope: 1.6905897
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.0625
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1247,8 +1246,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.9388253
     - serializedVersion: 3
-      time: 0.7594722
-      value: 0.22221613
+      time: 0.7428096
+      value: 0.20501566
       inSlope: -0.1826502
       outSlope: -0.1826502
       tangentMode: 0
@@ -1268,7 +1267,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   controls: {fileID: 1342390213}
-  _rightSide: 0
+  rotationIntensity: 5
 --- !u!224 &1332555665 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4613169215942060041, guid: d7e34915361f788479d30c0a9f33d7de,

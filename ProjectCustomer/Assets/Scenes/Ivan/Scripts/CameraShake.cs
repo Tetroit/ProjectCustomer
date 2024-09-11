@@ -13,6 +13,8 @@ public class CameraWalkingShake : MonoBehaviour
     public AnimationCurve XShake;
     public AnimationCurve YShake;
     public PlayerControlsIvan controls;
+
+    public float rotationIntensity;
     bool _rightSide;
     float _amplitude = 0;
 
@@ -43,7 +45,7 @@ public class CameraWalkingShake : MonoBehaviour
 
         offset = new Vector3((_rightSide) ? XShake.Evaluate(facX) : -XShake.Evaluate(facX), YShake.Evaluate(facY), 0f);
         offset.x *= _amplitude;
-        rotationOffset = -10 * offset.x;
+        rotationOffset = -rotationIntensity * offset.x;
 
         transform.localEulerAngles = new Vector3(0f, 0f, rotationOffset);
         transform.localPosition = offset;
