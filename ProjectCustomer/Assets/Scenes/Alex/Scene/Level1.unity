@@ -1111,8 +1111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 35
   movementSpeed: 5
-  minAngle: 20
-  maxAngle: 35
+  minAngle: -20
+  maxAngle: 50
   cameraSmoothness: 0.5
   isMoving: 0
   inputDevice: 0
