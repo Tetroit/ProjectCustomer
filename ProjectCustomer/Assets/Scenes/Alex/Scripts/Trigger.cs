@@ -28,7 +28,7 @@ public class Trigger : MonoBehaviour
 
         float dotProduct = Vector3.Dot(transform.forward, triggerToPlayer.normalized);
 
-        if(dotProduct < 0.5f)
+        if(dotProduct > 0.5f)
         {
             OnTriggeredEnter?.Invoke();
             //Compares whether objects with the assigned tag passes through the trigger

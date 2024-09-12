@@ -36,9 +36,6 @@ public class PlayerControls : MonoBehaviour
         Move();
         LookAround();
     }
-    private void FixedUpdate()
-    {
-    }
 
     private void LookAround()
     {
