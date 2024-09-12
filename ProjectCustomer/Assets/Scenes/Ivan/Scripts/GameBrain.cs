@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    MENU,
+    SETTINGS,
+    INVENTORY,
+
+}
 public class GameBrain : MonoBehaviour
 {
     public static GameBrain main;
