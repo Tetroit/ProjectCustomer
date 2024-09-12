@@ -1109,6 +1109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 979e0dfc5f7124a40ad3fadb1164dcf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseSensitivity: 35
+  movementSpeed: 5
+  minAngle: 20
+  maxAngle: 35
+  cameraSmoothness: 0.5
+  isMoving: 0
+  inputDevice: 0
   cameraTransform: {fileID: 901946827}
 --- !u!208 &836047893
 NavMeshObstacle:
@@ -1982,8 +1989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf5e3d22e8868c47a4f4eee4b4a89b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1
-  maxDistance: 20
+  minDistance: 10
+  maxDistance: 30
   trigger: {fileID: 1740632748}
 --- !u!208 &1258874851
 NavMeshObstacle:
