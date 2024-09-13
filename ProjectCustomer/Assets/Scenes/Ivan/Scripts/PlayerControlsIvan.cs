@@ -15,6 +15,7 @@ public class PlayerControlsIvan : MonoBehaviour
     [Range(0f, 1f)]
     public float cameraSmoothness = 0.5f;
     public bool isMoving;
+    public bool lockControls = false;
 
     public InputDevice inputDevice;
 
@@ -35,8 +36,16 @@ public class PlayerControlsIvan : MonoBehaviour
     {
         if (GameBrain.main.gameState == GameState.GAME)
         {
-            Move();
+            lockControls = false;
             LookAround();
+            Move();
+        }
+
+        if (GameBrain.main.gameState == GameState.INVENTORY ||
+            GameBrain.main.gameState == GameState.SETTINGS)
+        {
+            lockControls = true;
+            Move();
         }
     }
     private void FixedUpdate()
@@ -59,18 +68,22 @@ public class PlayerControlsIvan : MonoBehaviour
     {
         Vector3 moveDirection = Vector3.zero;
 
-        if (inputDevice == InputDevice.Joystick)
+        if (!lockControls)
         {
-            moveDirection += Input.GetAxisRaw("Vertical") * transform.forward;
-            moveDirection += Input.GetAxisRaw("Horizontal") * transform.right;
+            if (inputDevice == InputDevice.Joystick)
+            {
+                moveDirection += Input.GetAxisRaw("Vertical") * transform.forward;
+                moveDirection += Input.GetAxisRaw("Horizontal") * transform.right;
+            }
+            if (inputDevice == InputDevice.Keyboard)
+            {
+                if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward;
+                if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward;
+                if (Input.GetKey(KeyCode.D)) moveDirection += transform.right;
+                if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right;
+            }
         }
-        if (inputDevice == InputDevice.Keyboard)
-        {
-            if (Input.GetKey(KeyCode.W)) moveDirection += transform.forward;
-            if (Input.GetKey(KeyCode.S)) moveDirection -= transform.forward;
-            if (Input.GetKey(KeyCode.D)) moveDirection += transform.right;
-            if (Input.GetKey(KeyCode.A)) moveDirection -= transform.right;
-        }
+        
 
         if (moveDirection.magnitude > 0.1f) isMoving = true;
         else isMoving = false;
