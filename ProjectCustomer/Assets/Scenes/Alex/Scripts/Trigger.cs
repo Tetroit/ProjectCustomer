@@ -10,7 +10,7 @@ public class Trigger : MonoBehaviour
     [SerializeField] UnityEvent onTriggerEnter;
     [SerializeField] UnityEvent onTriggerExit;
 
-    [SerializeField] string tagFilter;
+    [SerializeField] string tagFilterName;
 
     [SerializeField] bool destroyOnTrigger;
 
@@ -54,7 +54,7 @@ public class Trigger : MonoBehaviour
 
     private void CheckTagsEnter(Collider other)
     {
-        if(!string.IsNullOrEmpty(tagFilter) && !other.gameObject.CompareTag(tagFilter))
+        if(!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerEnter.Invoke();
         }
@@ -62,7 +62,7 @@ public class Trigger : MonoBehaviour
 
     private void CheckTagsExit(Collider other)
     {
-        if(!string.IsNullOrEmpty(tagFilter) && !other.gameObject.CompareTag(tagFilter))
+        if(!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerExit.Invoke();
         }

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -11,17 +10,25 @@ public class aiControlls : MonoBehaviour
         Talk
     }
 
-    public EState currentState = EState.Idle;
+    public enum Enpc
+    {
+        Alex,
+        Ivan,
+        Jenifer
+    }
+    private EState currentState = EState.Idle;
+    [SerializeField] Enpc enpc;
 
     public NavMeshAgent agent;
-
     public Transform player;
 
     public Vector3[] locations;
     private int currentLocationIndex = 0;
 
+    private bool isTriggeredOnce = false;
+    private bool isSorry = false;
 
-    void Update()
+    private void Update()
     {
         SwitchStates();
     }
@@ -40,13 +47,13 @@ public class aiControlls : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.position) < 4f && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Talk");
             currentState = EState.Talk;
         }
 
         if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle)
         {
             ResumeIdle();
+            isSorry = true;
         }
     }
 
@@ -74,7 +81,40 @@ public class aiControlls : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 
-        //Here we can add dialogue or smth
+        if(!isTriggeredOnce)
+        {
+            TriggerDialogueForNPC();
+            isTriggeredOnce = true;
+        }
+
+        if(isSorry)
+        {
+            Debug.Log("Sorry");
+            isSorry = false;
+            ResumeIdle();
+        }
+    }
+
+    private void TriggerDialogueForNPC()
+    {
+        switch(enpc)
+        {
+            case Enpc.Alex:
+                Debug.Log("This is the unique dialogue for Alex.");
+                break;
+
+            case Enpc.Ivan:
+                Debug.Log("This is the unique dialogue for Ivan.");
+                break;
+
+            case Enpc.Jenifer:
+                Debug.Log("This is the unique dialogue for Jenifer.");
+                break;
+
+            default:
+                Debug.Log("No specific dialogue for this NPC.");
+                break;
+        }
     }
 
     private void ResumeIdle()
@@ -82,7 +122,7 @@ public class aiControlls : MonoBehaviour
         agent.isStopped = false;
         currentState = EState.Idle;
 
-        //I am not calling the MoveToNextLocation method because it was skipping a location
+        // I am not calling the MoveToNextLocation method because it was skipping a location
         if(locations.Length > 0)
         {
             agent.SetDestination(locations[currentLocationIndex - 1]);
