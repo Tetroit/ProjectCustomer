@@ -129,6 +129,8 @@ public class GameBrain : MonoBehaviour
                 }
             case GameState.INVENTORY:
                 {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                     break;
                 }
             case GameState.MENU:
@@ -138,6 +140,10 @@ public class GameBrain : MonoBehaviour
                     break;
                 }
         }
+    }
+    public void ReturnToPreviousState()
+    {
+        ChangeGameState(_previousState);
     }
     public void StartGame(string scene)
     {
