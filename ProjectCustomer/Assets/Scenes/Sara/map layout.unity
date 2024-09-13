@@ -242,8 +242,43 @@ PrefabInstance:
       objectReference: {fileID: 1128566051}
     - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
+      propertyPath: tagFilter1
+      value: Alex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilter2
+      value: Ivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilter3
+      value: Jenifer Lopez
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
       propertyPath: locations.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[0]
+      value: Alex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[1]
+      value: Ivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[2]
+      value: Jenifer Lopez
       objectReference: {fileID: 0}
     - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
@@ -370,10 +405,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5628097743486189054, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5628097743486189054, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5628097743486189054, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5628097743486189054, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5985959526464319124, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
       propertyPath: m_Name
       value: NPC (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985959526464319124, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ivan
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3288,8 +3348,43 @@ PrefabInstance:
       objectReference: {fileID: 1128566051}
     - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
+      propertyPath: tagFilter1
+      value: Alex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilter2
+      value: Ivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilter3
+      value: Jenifer Lopez
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
       propertyPath: locations.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[0]
+      value: Alex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[1]
+      value: Ivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[2]
+      value: Jenifer Lopez
       objectReference: {fileID: 0}
     - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
@@ -3416,10 +3511,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5628097743486189054, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5985959526464319124, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985959526464319124, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_TagString
+      value: Alex
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4403,8 +4508,43 @@ PrefabInstance:
       objectReference: {fileID: 1128566051}
     - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
+      propertyPath: tagFilter1
+      value: Alex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilter2
+      value: Ivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilter3
+      value: Jenifer Lopez
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
       propertyPath: locations.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[0]
+      value: Alex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[1]
+      value: Ivan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: tagFilters.Array.data[2]
+      value: Jenifer Lopez
       objectReference: {fileID: 0}
     - target: {fileID: 2905428202029607799, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
@@ -4531,10 +4671,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5628097743486189054, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5985959526464319124, guid: 3891693bbde9dd04b82e062de6e8df39,
         type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 5985959526464319124, guid: 3891693bbde9dd04b82e062de6e8df39,
+        type: 3}
+      propertyPath: m_TagString
+      value: Jenifer Lopez
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4737,6 +4887,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1571465279987391923, guid: f128551fdb1089141b09d4e94e347467,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2647560674104462209, guid: f128551fdb1089141b09d4e94e347467,
         type: 3}
       propertyPath: m_LocalPosition.x

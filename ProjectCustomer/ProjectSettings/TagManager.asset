@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ivan
+  - Alex
+  - Jenifer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Inventory
   - Water
   - UI
   - 
