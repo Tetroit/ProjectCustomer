@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: postProcessing
+  m_Name: Noise
   m_Shader: {fileID: -6465566751694194690, guid: 60d60e7a93ca2334cb0c9ba1d3e60224,
     type: 3}
   m_Parent: {fileID: 0}
@@ -110,8 +110,8 @@ Material:
     - _Metallic: 0
     - _MovementSensitivity: 0.05
     - _NoisePreview: 0
-    - _NoiseResolution: 0.08
-    - _NoiseScale: 0.01
+    - _NoiseResolution: 0
+    - _NoiseScale: 0.06
     - _NoiseSpeed: 100
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -124,7 +124,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _UseGrainNoise: 0
+    - _UseGrainNoise: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:

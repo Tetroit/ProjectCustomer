@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour
 {
-    public string name;
+    public string itemName;
     public bool selected;
     // Start is called before the first frame update
     void Start()

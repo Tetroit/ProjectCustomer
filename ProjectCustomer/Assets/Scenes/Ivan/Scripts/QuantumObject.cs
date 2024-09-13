@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class QuantumObject : MonoBehaviour
 {
-    public Renderer renderer;
+    public Renderer meshRenderer;
     bool isVisible;
     public Bounds teleportBounds;
     public BoxCollider objectArea;
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        meshRenderer = GetComponent<Renderer>();
     }
 
     void TeleportRandomly()

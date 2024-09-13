@@ -9,7 +9,6 @@ public enum EInputDevice
 }
 public class PlayerControlsIvan : MonoBehaviour
 {
-    public float mouseSensitivity = 10f;
     public float movementSpeed = 5f;
     public float minAngle = 20f;
     public float maxAngle = 35f;
@@ -34,8 +33,11 @@ public class PlayerControlsIvan : MonoBehaviour
     }
     void Update()
     {
-        Move();
-        LookAround();
+        if (GameBrain.main.gameState == GameState.GAME)
+        {
+            Move();
+            LookAround();
+        }
     }
     private void FixedUpdate()
     {
@@ -43,8 +45,8 @@ public class PlayerControlsIvan : MonoBehaviour
 
     private void LookAround()
     {
-        turnTarget.x += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        turnTarget.y += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity.x * Time.deltaTime;
+        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity.y * Time.deltaTime;
 
         turnTarget.y = Mathf.Clamp(turnTarget.y, minAngle, maxAngle);
         turn = Vector2.Lerp(turnTarget, turn, cameraSmoothness);
