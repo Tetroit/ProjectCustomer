@@ -16,6 +16,7 @@ public class aiControlls : MonoBehaviour
         Ivan,
         Jenifer
     }
+
     private EState currentState = EState.Idle;
     [SerializeField] Enpc enpc;
 
@@ -26,7 +27,22 @@ public class aiControlls : MonoBehaviour
     private int currentLocationIndex = 0;
 
     private bool isTriggeredOnce = false;
-    private bool isSorry = false;
+    private bool isInterracted = false;
+
+    // Dialogue management
+    private List<string> alexDialogue = new List<string>();
+    private int dialogueIndex = 0;
+
+    private void Start()
+    {
+        // Initialize Alex's dialogue lines
+        alexDialogue.Add("Player: Young man/lady, could you help me please. I need to go home… ");
+        alexDialogue.Add("NPC: I suppose… what do you want? ");
+        alexDialogue.Add("Player: I need to find… the… I need to… what was it called again?");
+        alexDialogue.Add("NPC: Can you speak a bit faster? I don’t have all day.");
+        alexDialogue.Add("Player: I want to go to… uhmm…");
+        alexDialogue.Add("NPC: I don’t have time for this.  *leaves*");
+    }
 
     private void Update()
     {
@@ -53,7 +69,7 @@ public class aiControlls : MonoBehaviour
         if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle)
         {
             ResumeIdle();
-            isSorry = true;
+            isInterracted = true;
         }
     }
 
@@ -87,11 +103,9 @@ public class aiControlls : MonoBehaviour
             isTriggeredOnce = true;
         }
 
-        if(isSorry)
+        if(enpc == Enpc.Alex && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("Sorry");
-            isSorry = false;
-            ResumeIdle();
+            ShowNextDialogueLine();
         }
     }
 
@@ -100,7 +114,8 @@ public class aiControlls : MonoBehaviour
         switch(enpc)
         {
             case Enpc.Alex:
-                Debug.Log("This is the unique dialogue for Alex.");
+                dialogueIndex = 0;
+                Debug.Log(alexDialogue[dialogueIndex]);
                 break;
 
             case Enpc.Ivan:
@@ -114,6 +129,18 @@ public class aiControlls : MonoBehaviour
             default:
                 Debug.Log("No specific dialogue for this NPC.");
                 break;
+        }
+    }
+
+    private void ShowNextDialogueLine()
+    {
+        dialogueIndex++;
+        if(dialogueIndex < alexDialogue.Count)
+        {
+            Debug.Log(alexDialogue[dialogueIndex]);
+        } else
+        {
+            ResumeIdle();
         }
     }
 
