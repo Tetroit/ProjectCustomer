@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mbs-pack-descriptor
+  m_Script: "{\n    \"guid\": \"e1ba381404ee4fc38f120ba4d22911bc\",\n    \"_name\":
+    \"TESTETSTETSE\",\n    \"_wallGroups\": [\n        {\n            \"guid\": \"7706211c4a204979ba221e079fefd508\",\n           
+    \"name\": \"New Wall Group\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"d67b3cab0f4f4873a9812db121100f03\",\n                    \"name\":
+    \"New Wall Module\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 54287884566592696,\n                           
+    \"guid\": \"ebdaf657559cb8842bd4dc0caa131363\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        }\n    ],\n    \"_floorGroups\": [],\n    \"_decoratorGroups\":
+    [],\n    \"_decoratorCategories\": [\n        {\n            \"guid\": \"54e897ed294746eba8d604a5b5aef04f\",\n           
+    \"_name\": \"All\"\n        }\n    ]\n}"
