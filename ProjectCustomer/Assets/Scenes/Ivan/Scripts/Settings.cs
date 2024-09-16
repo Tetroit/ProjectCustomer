@@ -15,8 +15,8 @@ public class Settings : MonoBehaviour
     protected float _musicVolume;
     protected float _sfxVolume;
     public bool isFullscreen { get; private set; }
-    protected Vector2 _mouseSensitivity;
-    public Vector2 mouseSensitivity { get { return _mouseSensitivity; } }
+    protected float _mouseSensitivity;
+    public float mouseSensitivity { get { return _mouseSensitivity; } }
 
     const string MASTER = "masterVolume";
     const string MUSIC = "musicVolume";
@@ -49,8 +49,7 @@ public class Settings : MonoBehaviour
             ChangeMusicVolume(layout.musicVolume.value);
             ChangeSFXVolume(layout.sfxVolume.value);
 
-            ChangeMouseSensitivityX(layout.mouseSensitivityX.value);
-            ChangeMouseSensitivityY(layout.mouseSensitivityY.value);
+            ChangeMouseSensitivity(layout.mouseSensitivity.value);
 
             ToggleFullscreen(layout.fullscreen.isOn);
 
@@ -59,8 +58,7 @@ public class Settings : MonoBehaviour
             layout.musicVolume.onValueChanged.AddListener(ChangeMusicVolume);
             layout.sfxVolume.onValueChanged.AddListener(ChangeSFXVolume);
 
-            layout.mouseSensitivityX.onValueChanged.AddListener(ChangeMouseSensitivityX);
-            layout.mouseSensitivityY.onValueChanged.AddListener(ChangeMouseSensitivityY);
+            layout.mouseSensitivity.onValueChanged.AddListener(ChangeMouseSensitivity);
 
             layout.disableFlashingColors.onValueChanged.AddListener(ToggleFlashingColors);
             layout.displayMode.onValueChanged.AddListener(ChangeDisplayMode);
@@ -110,13 +108,9 @@ public class Settings : MonoBehaviour
         _sfxVolume = value;
         mixer.SetFloat(SFX, _sfxVolume);
     }
-    void ChangeMouseSensitivityX(float value)
+    void ChangeMouseSensitivity(float value)
     {
-        _mouseSensitivity.x = value;
-    }
-    void ChangeMouseSensitivityY(float value)
-    {
-        _mouseSensitivity.y = value;
+        _mouseSensitivity = value;
     }
     void ExitToMenu()
     {

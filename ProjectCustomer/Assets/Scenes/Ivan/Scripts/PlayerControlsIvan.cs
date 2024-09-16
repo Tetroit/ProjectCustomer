@@ -42,7 +42,7 @@ public class PlayerControlsIvan : MonoBehaviour
         if (cameraTransform != null)
         {
             cameraTransform.position = transform.position;
-            cameraTransform.rotation = transform.rotation;
+            cameraTransform.localRotation = transform.rotation;
         }
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -75,8 +75,8 @@ public class PlayerControlsIvan : MonoBehaviour
 
     private void LookAround()
     {
-        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity.x * 0.02f;
-        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity.y * 0.02f;
+        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity * 0.02f;
+        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity * 0.02f;
 
         turnTarget.y = Mathf.Clamp(turnTarget.y, minAngle, maxAngle);
         turn = Vector2.Lerp(turnTarget, turn, cameraSmoothness);
@@ -104,9 +104,7 @@ public class PlayerControlsIvan : MonoBehaviour
                 isGrounded = true;
                 groundNormal = c.normal;
             }
-            Debug.Log(c.otherCollider.name);
         }
-        Debug.Log("total: " + contacts.Count);
         //if (!isGrounded)
         //{
         //    RaycastHit hit;

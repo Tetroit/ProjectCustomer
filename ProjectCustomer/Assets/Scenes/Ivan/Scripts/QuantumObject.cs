@@ -20,7 +20,6 @@ public class QuantumObject : MonoBehaviour
     {
         if (Camera.main != null)
         {
-            Debug.Log("telepot");
             Vector3 possibleLocation = RandomVector(teleportBounds);
             Bounds newBounds = new Bounds(objectArea.center + possibleLocation, objectArea.size);
 

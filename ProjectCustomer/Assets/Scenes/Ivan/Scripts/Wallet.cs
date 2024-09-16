@@ -18,7 +18,7 @@ public class Wallet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) )
+        if (Input.GetKeyDown(KeyCode.R) )
         {
             Debug.Log("toggle");
             if (isOpen && GameBrain.main.gameState == GameState.INVENTORY)
@@ -41,14 +41,12 @@ public class Wallet : MonoBehaviour
     {
         targetPos = onPosition;
         isOpen = true;
-        Debug.Log("open");
         GameBrain.main.ChangeGameState(GameState.INVENTORY);
     }
     void Close()
     {
         targetPos = offPosition;
         isOpen = false;
-        Debug.Log("close");
         GameBrain.main.ChangeGameState(GameState.GAME);
 
     }

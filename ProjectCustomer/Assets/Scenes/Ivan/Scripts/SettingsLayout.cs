@@ -10,8 +10,7 @@ public class SettingsLayout : MonoBehaviour
     public Slider musicVolume;
     public Slider sfxVolume;
 
-    public Slider mouseSensitivityX;
-    public Slider mouseSensitivityY;
+    public Slider mouseSensitivity;
 
     public Button exitToMenu;
     public Button exitToDesktop;
