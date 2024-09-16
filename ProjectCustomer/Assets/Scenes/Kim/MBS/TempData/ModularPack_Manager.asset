@@ -297,3 +297,19 @@ MonoBehaviour:
     _decoratorCategories:
     - guid: 5fc266ce03f84b9ca392049a28ef4c36
       _name: All
+  - guid: e1ba381404ee4fc38f120ba4d22911bc
+    _name: TESTETSTETSE
+    _wallGroups:
+    - guid: 7706211c4a204979ba221e079fefd508
+      name: New Wall Group
+      _modules:
+      - guid: d67b3cab0f4f4873a9812db121100f03
+        name: New Wall Module
+        prefabs:
+        - {fileID: 54287884566592696, guid: ebdaf657559cb8842bd4dc0caa131363, type: 3}
+        - {fileID: 0}
+    _floorGroups: []
+    _decoratorGroups: []
+    _decoratorCategories:
+    - guid: 54e897ed294746eba8d604a5b5aef04f
+      _name: All
