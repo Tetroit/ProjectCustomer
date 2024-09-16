@@ -9,7 +9,11 @@ public class QuantumObject : MonoBehaviour
     public BoxCollider objectArea;
     void Start()
     {
-        meshRenderer = GetComponent<Renderer>();
+        if (meshRenderer == null)
+            meshRenderer = GetComponent<Renderer>();
+        if (objectArea == null)
+            objectArea = GetComponent<BoxCollider>();
+
     }
 
     void TeleportRandomly()
@@ -29,12 +33,16 @@ public class QuantumObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (meshRenderer.isVisible != isVisible)
+        {
+            isVisible = meshRenderer.isVisible;
+            if (!isVisible)
+            {
+                TeleportRandomly();
+            }
+        }
     }
 
-    void OnBecameInvisible()
-    {
-        TeleportRandomly();
-    }
     Vector3 RandomVector(Bounds bounds)
     {
         Vector3 res = Vector3.zero;
