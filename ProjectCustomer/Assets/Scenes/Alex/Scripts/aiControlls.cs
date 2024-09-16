@@ -22,26 +22,14 @@ public class aiControlls : MonoBehaviour
 
     public NavMeshAgent agent;
     public Transform player;
+    public Dialogue dialoguePanel;
 
     public Vector3[] locations;
     private int currentLocationIndex = 0;
 
-    private bool isTriggeredOnce = false;
-    private bool isInterracted = false;
-
-    // Dialogue management
-    private List<string> alexDialogue = new List<string>();
-    private int dialogueIndex = 0;
-
     private void Start()
     {
-        // Initialize Alex's dialogue lines
-        alexDialogue.Add("Player: Young man/lady, could you help me please. I need to go home… ");
-        alexDialogue.Add("NPC: I suppose… what do you want? ");
-        alexDialogue.Add("Player: I need to find… the… I need to… what was it called again?");
-        alexDialogue.Add("NPC: Can you speak a bit faster? I don’t have all day.");
-        alexDialogue.Add("Player: I want to go to… uhmm…");
-        alexDialogue.Add("NPC: I don’t have time for this.  *leaves*");
+
     }
 
     private void Update()
@@ -69,7 +57,7 @@ public class aiControlls : MonoBehaviour
         if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle)
         {
             ResumeIdle();
-            isInterracted = true;
+            dialoguePanel.ResetDialogue();
         }
     }
 
@@ -97,62 +85,18 @@ public class aiControlls : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 
-        if(!isTriggeredOnce)
-        {
-            TriggerDialogueForNPC();
-            isTriggeredOnce = true;
-        }
-
-        if(enpc == Enpc.Alex && Input.GetKeyDown(KeyCode.F))
-        {
-            ShowNextDialogueLine();
-        }
+        dialoguePanel.StartDialogue();
     }
 
-    private void TriggerDialogueForNPC()
-    {
-        switch(enpc)
-        {
-            case Enpc.Alex:
-                dialogueIndex = 0;
-                Debug.Log(alexDialogue[dialogueIndex]);
-                break;
-
-            case Enpc.Ivan:
-                Debug.Log("This is the unique dialogue for Ivan.");
-                break;
-
-            case Enpc.Jenifer:
-                Debug.Log("This is the unique dialogue for Jenifer.");
-                break;
-
-            default:
-                Debug.Log("No specific dialogue for this NPC.");
-                break;
-        }
-    }
-
-    private void ShowNextDialogueLine()
-    {
-        dialogueIndex++;
-        if(dialogueIndex < alexDialogue.Count)
-        {
-            Debug.Log(alexDialogue[dialogueIndex]);
-        } else
-        {
-            ResumeIdle();
-        }
-    }
-
-    private void ResumeIdle()
+    public void ResumeIdle()
     {
         agent.isStopped = false;
         currentState = EState.Idle;
 
-        // I am not calling the MoveToNextLocation method because it was skipping a location
         if(locations.Length > 0)
         {
-            agent.SetDestination(locations[currentLocationIndex - 1]);
+            int targetIndex = (currentLocationIndex - 1 + locations.Length) % locations.Length;
+            agent.SetDestination(locations[targetIndex]);
             currentLocationIndex = (currentLocationIndex) % locations.Length;
         }
     }
