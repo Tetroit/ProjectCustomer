@@ -13,6 +13,77 @@ MonoBehaviour:
   m_Name: ModularPack_Manager
   m_EditorClassIdentifier: 
   _modularPacks:
+  - guid: 722f1e6a254642d5a0e28de795bd8ed5
+    _name: BUILDING 1
+    _wallGroups:
+    - guid: 819f2353865346dd8087676ad0a43b4c
+      name: Building 1
+      _modules:
+      - guid: e81e5a220ab04fb88db8bf7568ca4bcf
+        name: BUILDING 1
+        prefabs:
+        - {fileID: 3136200321490062854, guid: 16a4047ca7710e449ac1f71371cb32c7, type: 3}
+        - {fileID: 0}
+    - guid: fd63db3bdb124e5b8168371a3696bf57
+      name: BUILD 2
+      _modules:
+      - guid: f5bd11311be14d70abfd673ea47ebc5c
+        name: BUILDING 2
+        prefabs:
+        - {fileID: 3906609776800295372, guid: 60daa733c8594d34e9effdba194a22b0, type: 3}
+        - {fileID: 0}
+    - guid: 46a21797e44a419ea6556eea92585ca6
+      name: BUILD 3
+      _modules:
+      - guid: 4940688c4dd747f69a0fe847b1ef7e77
+        name: BUILD 3
+        prefabs:
+        - {fileID: 3317837492034489170, guid: e707e24e4e18f9e4bac08c9c32fe30e9, type: 3}
+        - {fileID: 0}
+    _floorGroups:
+    - guid: 596849e8d88a439abfa805d3ca317f0a
+      name: PAVEMENT
+      _modules:
+      - guid: cc32f6798a3e4fe2af34ada964e3420b
+        name: PAVEMENT
+        prefabs:
+        - {fileID: 8975466478578451387, guid: df96e0ad4c6b46e489f65fc79eb20198, type: 3}
+        - {fileID: 0}
+    - guid: 6361f7735d914e7c883c752032fd59ca
+      name: ROAD
+      _modules:
+      - guid: 173c4274b6414c32a5460437396931aa
+        name: New Floor Module
+        prefabs:
+        - {fileID: 4226590795470721273, guid: 2abf75159c060ce40bdf5b3c29bbe09b, type: 3}
+        - {fileID: 0}
+    - guid: a22067bb5f15486585faa833ef3118e8
+      name: New Floor Group
+      _modules: []
+    _decoratorGroups:
+    - guid: 3ec2fec9824e4d74bd3382b2be6e5058
+      name: New Decor Group
+      _modules:
+      - guid: cd44f8eab5e6451eb01896b6b5f09162
+        name: BENCH
+        prefabs:
+        - {fileID: 919132149155446097, guid: 0bec3eea786de764abae15b167a0f860, type: 3}
+      _assetCategoryGuid: cafd5b4d67394d29ae1012462a874e0c
+    - guid: e90d9a3736024cf3b5ae824fed588ed2
+      name: New Decor Group (1)
+      _modules:
+      - guid: d87c03c2572640f0addf4d67b71fb44a
+        name: LAMP
+        prefabs:
+        - {fileID: 919132149155446097, guid: b4fde6b8c4c3f7b449ee85679ce13a7a, type: 3}
+      _assetCategoryGuid: cafd5b4d67394d29ae1012462a874e0c
+    - guid: 05c4eb447f7e4b64b680c3c41b3f46fd
+      name: New Decor Group
+      _modules: []
+      _assetCategoryGuid: 
+    _decoratorCategories:
+    - guid: cafd5b4d67394d29ae1012462a874e0c
+      _name: All
   - guid: c7799a98c38a4ccf9a132ad11dfe187b
     _name: Coffee Shop Example Pack
     _wallGroups:
