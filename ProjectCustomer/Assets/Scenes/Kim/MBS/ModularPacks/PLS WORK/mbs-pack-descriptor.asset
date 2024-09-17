@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mbs-pack-descriptor
+  m_Script: "{\n    \"guid\": \"28f24b6425da40428c0e96ecc96f0bf1\",\n    \"_name\":
+    \"PLS WORK\",\n    \"_wallGroups\": [\n        {\n            \"guid\": \"4a1ed31519094a1da69d60067e2a7a3d\",\n           
+    \"name\": \"New Wall Group\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"15cdfc246e714e4c821ac1dda20307e4\",\n                    \"name\":
+    \"New Wall Module\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 836989830161673415,\n                           
+    \"guid\": \"f108733e5303d534b83fd96af93f3839\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"fileID\": 8544571978651090000,\n                            \"guid\": \"0a3994ac2a297ae4e95230df53b52ef0\",\n                           
+    \"type\": 3\n                        }\n                    ]\n               
+    },\n                {\n                    \"guid\": \"ff0adda48c7e44c8836921a85a72b92d\",\n                   
+    \"name\": \"New Wall Module (1)\",\n                    \"prefabs\": [\n                       
+    {\n                            \"instanceID\": 0\n                        },\n                       
+    {\n                            \"instanceID\": 0\n                        }\n                   
+    ]\n                }\n            ]\n        }\n    ],\n    \"_floorGroups\":
+    [\n        {\n            \"guid\": \"f2cb312460f54bab8733f70f6579d473\",\n           
+    \"name\": \"New Floor Group\",\n            \"_modules\": [\n               
+    {\n                    \"guid\": \"275226b7067946dcbf2ca38727ad8074\",\n                   
+    \"name\": \"New Floor Module\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 9100259222744115890,\n                           
+    \"guid\": \"e8d7c178d6a4ac145b79e2188f28e4e3\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        }\n    ],\n    \"_decoratorGroups\": [],\n    \"_decoratorCategories\":
+    [\n        {\n            \"guid\": \"d9d75ed33e664457828de42270bb4ad5\",\n           
+    \"_name\": \"All\"\n        }\n    ]\n}"

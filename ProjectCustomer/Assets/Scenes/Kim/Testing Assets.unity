@@ -122,6 +122,174 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &686705791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686705793}
+  - component: {fileID: 686705792}
+  m_Layer: 0
+  m_Name: MBS Construction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &686705792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686705791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8c14816cf3e694fbb7448f77d12310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEditor: {fileID: 0}
+  builderData:
+    rid: 6882484690847793152
+  _walls: []
+  _areas: []
+  _allEndPoints: []
+  _allEndPointsForSnaps: []
+  _placerPreviewObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6882484690847793152
+      type: {class: BuilderData, ns: MBS.Model.Builder, asm: MBS}
+      data:
+        _selectedTool: 0
+        _toolsSavedData:
+        - PackGUID: CombinedModularPackGUID
+          GroupGuid: ab0841eb0c2b4cc6a42634a714b37757
+          CategoryGUID: 
+          GridCellSize: 2
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+--- !u!4 &686705793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686705791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1240081744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240081746}
+  - component: {fileID: 1240081745}
+  m_Layer: 0
+  m_Name: MBS Construction (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1240081745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240081744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8c14816cf3e694fbb7448f77d12310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEditor: {fileID: 0}
+  builderData:
+    rid: 6882484690847793155
+  _walls: []
+  _areas: []
+  _allEndPoints: []
+  _allEndPointsForSnaps: []
+  _placerPreviewObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6882484690847793155
+      type: {class: BuilderData, ns: MBS.Model.Builder, asm: MBS}
+      data:
+        _selectedTool: 0
+        _toolsSavedData:
+        - PackGUID: 28f24b6425da40428c0e96ecc96f0bf1
+          GroupGuid: 4a1ed31519094a1da69d60067e2a7a3d
+          CategoryGUID: 
+          GridCellSize: 10.58996
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+--- !u!4 &1240081746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240081744}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1368603996
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +568,174 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff3fbc8a283aca74a994a36875716bda, type: 3}
+--- !u!1 &1676438613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1676438615}
+  - component: {fileID: 1676438614}
+  m_Layer: 0
+  m_Name: MBS Construction (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1676438614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676438613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8c14816cf3e694fbb7448f77d12310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEditor: {fileID: 0}
+  builderData:
+    rid: 6882484690847793154
+  _walls: []
+  _areas: []
+  _allEndPoints: []
+  _allEndPointsForSnaps: []
+  _placerPreviewObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6882484690847793154
+      type: {class: BuilderData, ns: MBS.Model.Builder, asm: MBS}
+      data:
+        _selectedTool: 0
+        _toolsSavedData:
+        - PackGUID: 28f24b6425da40428c0e96ecc96f0bf1
+          GroupGuid: 4a1ed31519094a1da69d60067e2a7a3d
+          CategoryGUID: 
+          GridCellSize: 10.58996
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+--- !u!4 &1676438615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676438613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2132006440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2132006442}
+  - component: {fileID: 2132006441}
+  m_Layer: 0
+  m_Name: MBS Construction (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2132006441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132006440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8c14816cf3e694fbb7448f77d12310, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mEditor: {fileID: 0}
+  builderData:
+    rid: 6882484690847793153
+  _walls: []
+  _areas: []
+  _allEndPoints: []
+  _allEndPointsForSnaps: []
+  _placerPreviewObject: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 6882484690847793153
+      type: {class: BuilderData, ns: MBS.Model.Builder, asm: MBS}
+      data:
+        _selectedTool: 0
+        _toolsSavedData:
+        - PackGUID: 28f24b6425da40428c0e96ecc96f0bf1
+          GroupGuid: 4a1ed31519094a1da69d60067e2a7a3d
+          CategoryGUID: 
+          GridCellSize: 10.589961
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+        - PackGUID: 
+          GroupGuid: 
+          CategoryGUID: 
+          GridCellSize: 1
+          GridCellSize_LinkToggle: 1
+          GridLevelHeight: 1
+          GridLevelNumber: 0
+          SelectionGrid_ScrollPos: {x: 0, y: 0}
+--- !u!4 &2132006442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132006440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &966141060527159990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,12 +883,12 @@ PrefabInstance:
     - target: {fileID: 232955303423690120, guid: 240e0a484f643c347b1e6f4f86399d0a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -22.88
       objectReference: {fileID: 0}
     - target: {fileID: 232955303423690120, guid: 240e0a484f643c347b1e6f4f86399d0a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -1.64
       objectReference: {fileID: 0}
     - target: {fileID: 232955303423690120, guid: 240e0a484f643c347b1e6f4f86399d0a,
         type: 3}
@@ -615,7 +951,7 @@ PrefabInstance:
     - target: {fileID: 817906214975404523, guid: 0a3994ac2a297ae4e95230df53b52ef0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -11.39
       objectReference: {fileID: 0}
     - target: {fileID: 817906214975404523, guid: 0a3994ac2a297ae4e95230df53b52ef0,
         type: 3}
@@ -752,3 +1088,7 @@ SceneRoots:
   - {fileID: 6969561573828381489}
   - {fileID: 6462444710667787371}
   - {fileID: 966141060527159990}
+  - {fileID: 686705793}
+  - {fileID: 2132006442}
+  - {fileID: 1676438615}
+  - {fileID: 1240081746}
