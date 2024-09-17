@@ -2275,6 +2275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequency: 0.5
+  soundRotation: 0
   XShake:
     serializedVersion: 2
     m_Curve:
@@ -2333,6 +2334,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   controls: {fileID: 1342390213}
+  stepSource: {fileID: 0}
+  stepSounds:
+  - {fileID: 8300000, guid: 17abbfd96c28ded4499d8f83bf7a03a2, type: 3}
+  - {fileID: 8300000, guid: ab89751445bdd164ab452061bc8f1ece, type: 3}
   rotationIntensity: 5
 --- !u!224 &1332555665 stripped
 RectTransform:
@@ -2355,9 +2360,9 @@ GameObject:
   - component: {fileID: 1342390213}
   - component: {fileID: 1342390214}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 319f93dad239a43419fce76bce4800be, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2524,7 +2529,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1383473307
 BoxCollider:
@@ -2629,7 +2634,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1408212339
 BoxCollider:
@@ -3047,7 +3052,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1747898494
 BoxCollider:
