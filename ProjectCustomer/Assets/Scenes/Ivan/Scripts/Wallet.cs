@@ -20,11 +20,22 @@ public class Wallet : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R) )
         {
-            Debug.Log("toggle");
-            if (isOpen && GameBrain.main.gameState == GameState.INVENTORY)
-                Close();
-            else if (GameBrain.main.gameState == GameState.GAME)
-                Open();
+            if (GlobalData.instance.isWalletUnlocked)
+            {
+                if (GlobalData.instance.GetUIHintStatus(GlobalData.EHintBit.WALLET) )
+                {
+                    Debug.Log("fart");
+                    GlobalData.instance.SetUIHintVisibility((int)GlobalData.EHintBit.WALLET, false);
+                }
+                if (isOpen && GameBrain.main.gameState == GameState.INVENTORY)
+                    Close();
+                else if (GameBrain.main.gameState == GameState.GAME)
+                    Open();
+            }
+            else
+            {
+                Debug.Log("wallet not avaliable");
+            }
         }   
 
         if (GameBrain.main.gameState == GameState.INVENTORY)

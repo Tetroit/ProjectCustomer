@@ -12,20 +12,11 @@ public class SettingsLayout : MonoBehaviour
 
     public Slider mouseSensitivity;
 
+    public Button closeWindow;
     public Button exitToMenu;
     public Button exitToDesktop;
 
     public Toggle disableFlashingColors;
     public Toggle fullscreen;
     public TMP_Dropdown displayMode;
-
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

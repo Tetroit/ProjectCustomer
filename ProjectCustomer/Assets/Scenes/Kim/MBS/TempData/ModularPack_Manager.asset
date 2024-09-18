@@ -73,6 +73,14 @@ MonoBehaviour:
         prefabs:
         - {fileID: 4226590795470721273, guid: 9e9cbce989b8c9c468f10ee2c92c2260, type: 3}
         - {fileID: 0}
+    - guid: 85f1a65cf46d4e0fb762591cf22ec338
+      name: ROOFF
+      _modules:
+      - guid: 915c9ccbf28649f0a12cab396625a755
+        name: ROOF
+        prefabs:
+        - {fileID: 1122623540866565394, guid: 3e79a689a5823e34283f175f44b1f93f, type: 3}
+        - {fileID: 0}
     _decoratorGroups:
     - guid: 3ec2fec9824e4d74bd3382b2be6e5058
       name: New Decor Group
@@ -90,10 +98,14 @@ MonoBehaviour:
         prefabs:
         - {fileID: 919132149155446097, guid: b4fde6b8c4c3f7b449ee85679ce13a7a, type: 3}
       _assetCategoryGuid: cafd5b4d67394d29ae1012462a874e0c
-    - guid: 05c4eb447f7e4b64b680c3c41b3f46fd
-      name: New Decor Group
-      _modules: []
-      _assetCategoryGuid: 
+    - guid: 5357e3418b99409e890ccdeafe7421f7
+      name: LAMP
+      _modules:
+      - guid: a90838830c8b4b03804b9cffab92611f
+        name: LAMP
+        prefabs:
+        - {fileID: 3198510955275961354, guid: 3fe746e4a8dc65740b2da965964cc39d, type: 3}
+      _assetCategoryGuid: cafd5b4d67394d29ae1012462a874e0c
     _decoratorCategories:
     - guid: cafd5b4d67394d29ae1012462a874e0c
       _name: All
