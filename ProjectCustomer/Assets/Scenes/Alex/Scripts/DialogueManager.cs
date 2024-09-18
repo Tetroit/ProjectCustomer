@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI dialogueText;
 
     private Queue<string> sentences;
+    private Queue<Dialogue> dialogueQueue;
 
     [SerializeField] Animator animator;
 
@@ -20,12 +21,12 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        dialogueQueue = new Queue<Dialogue>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -35,7 +36,23 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach(string sentence in dialogue.firstDialogue)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence();
+    }
+
+    public void StartSecondDialogue(Dialogue dialogue)
+    {
+        isDialogueFinished = false;
+        OpenDialogue();
+        nameText.text = dialogue.name;
+        sentences.Clear();
+
+        // Enqueue second dialogue sentences
+        foreach(string sentence in dialogue.secondDialogue)
         {
             sentences.Enqueue(sentence);
         }
@@ -57,7 +74,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach(char letter in sentence.ToCharArray())
@@ -71,8 +88,7 @@ public class DialogueManager : MonoBehaviour
     {
         CloseDialogue();
     }
-
-    public void  OpenDialogue()
+    public void OpenDialogue()
     {
         animator.SetBool("IsOpen", true);
     }
