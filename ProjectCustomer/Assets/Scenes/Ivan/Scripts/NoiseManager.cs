@@ -69,10 +69,9 @@ public class NoiseManager : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            //intensity = fac * 0.1f;
-            //option 1
-            //distanceScale = fac * (Mathf.Sin(Time.time)*0.1f + 0.11f);
-            //color = Color.Lerp(Color.gray, Color.black, Mathf.Sin(Time.time));
+            intensity = fac * 0.03f;
+            distanceScale = fac * (Mathf.Sin(Time.time) * 0.1f + 0.15f);
+            color = Color.Lerp(Color.white, Color.black, Mathf.Cos(Time.time/2));
 
         }
     }

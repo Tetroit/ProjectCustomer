@@ -41,7 +41,6 @@ public class PlayerControlsIvan : MonoBehaviour
     {
         if (cameraTransform != null)
         {
-            cameraTransform.position = transform.position;
             cameraTransform.localRotation = transform.rotation;
         }
 
@@ -52,6 +51,10 @@ public class PlayerControlsIvan : MonoBehaviour
     }
     void Update()
     {
+        if (GameBrain.main.gameState == GameState.GAME)
+        {
+            LookAround();
+        }
     }
     private void FixedUpdate()
     {
@@ -59,7 +62,6 @@ public class PlayerControlsIvan : MonoBehaviour
         if (GameBrain.main.gameState == GameState.GAME)
         {
             lockControls = false;
-            LookAround();
             Move();
         }
 
@@ -75,14 +77,14 @@ public class PlayerControlsIvan : MonoBehaviour
 
     private void LookAround()
     {
-        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity * 0.02f;
-        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity * 0.02f;
+        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity * Time.deltaTime;
+        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity * Time.deltaTime;
 
         turnTarget.y = Mathf.Clamp(turnTarget.y, minAngle, maxAngle);
         turn = Vector2.Lerp(turnTarget, turn, cameraSmoothness);
 
         if (cameraTransform)
-            cameraTransform.rotation = Quaternion.Euler(-turn.y, turn.x, 0f);
+            cameraTransform.localRotation = Quaternion.Euler(-turn.y, 0f, 0f);
 
         rb.rotation = Quaternion.Euler(0f, turn.x, 0f);
     }
@@ -172,8 +174,6 @@ public class PlayerControlsIvan : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, jumpHeight, rb.velocity.z);
         }
 
-        if (cameraTransform)
-            cameraTransform.position = transform.position;
     }
 
     //to learn more about the thing down here google "Gram Schmidt process"
