@@ -13,10 +13,12 @@ public class aiControlls : MonoBehaviour
     
 
     private EState currentState = EState.Idle;
+    [SerializeField] Animator animator;
     public NavMeshAgent agent;
     public Transform player;
     public DialogueManager dialogueManager;
     public DialogueTrigger DialogueTrigger;
+    
 
     public Vector3[] locations;
     private int currentLocationIndex = 0;
@@ -25,7 +27,7 @@ public class aiControlls : MonoBehaviour
 
     private void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -59,6 +61,7 @@ public class aiControlls : MonoBehaviour
 
     private void MoveToNextLocation()
     {
+        animator.SetBool("Walking", true);
         if(locations.Length > 0)
         {
             agent.SetDestination(locations[currentLocationIndex]);
@@ -76,6 +79,7 @@ public class aiControlls : MonoBehaviour
 
     private void HandleTalkState()
     {
+        animator.SetBool("Walking", false);
         agent.isStopped = true;
         Vector3 aiToPlayer = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
@@ -95,6 +99,7 @@ public class aiControlls : MonoBehaviour
 
     public void ResumeIdle()
     {
+        animator.SetBool("Walking", true);
         dialogueManager.CloseDialogue();
         isStarted = false;
         agent.isStopped = false;
