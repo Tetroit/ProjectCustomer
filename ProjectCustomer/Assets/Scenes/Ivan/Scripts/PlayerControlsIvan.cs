@@ -135,7 +135,12 @@ public class PlayerControlsIvan : MonoBehaviour
             }
         }
 
-        if (moveDirection.magnitude > 0.1f) isMoving = true;
+        if (moveDirection.magnitude > 0.1f)
+        {
+            isMoving = true;
+            if (GlobalData.instance.GetUIHintStatus(GlobalData.EHintBit.CONTROLS))
+                GlobalData.instance.SetUIHintVisibility((int)GlobalData.EHintBit.CONTROLS, false);
+        }
         else isMoving = false;
 
         //-------------COLLISION RESOLUTION-------------

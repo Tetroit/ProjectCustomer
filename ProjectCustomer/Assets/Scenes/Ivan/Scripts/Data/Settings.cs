@@ -56,28 +56,61 @@ public class Settings : MonoBehaviour
         {
             GetScreenProperties();
 
-            ChangeMasterVolume(layout.masterVolume.value);
-            ChangeMusicVolume(layout.musicVolume.value);
-            ChangeSFXVolume(layout.sfxVolume.value);
+            //SOUND
 
-            ChangeMouseSensitivity(layout.mouseSensitivity.value);
+            if (layout.masterVolume)
+            {
+                ChangeMasterVolume(layout.masterVolume.value);
+                layout.masterVolume.onValueChanged.AddListener(ChangeMasterVolume);
+            }
+            if (layout.musicVolume)
+            {
+                ChangeMusicVolume(layout.musicVolume.value);
+                layout.musicVolume.onValueChanged.AddListener(ChangeMusicVolume);
+            }
+            if (layout.sfxVolume)
+            {
+                ChangeSFXVolume(layout.sfxVolume.value);
+                layout.sfxVolume.onValueChanged.AddListener(ChangeSFXVolume);
+            }
 
-            ToggleFullscreen(layout.fullscreen.isOn);
+            //CONTROLS
 
+            if (layout.mouseSensitivity)
+            {
+                ChangeMouseSensitivity(layout.mouseSensitivity.value);
+                layout.mouseSensitivity.onValueChanged.AddListener(ChangeMouseSensitivity);
+            }
 
-            layout.masterVolume.onValueChanged.AddListener(ChangeMasterVolume);
-            layout.musicVolume.onValueChanged.AddListener(ChangeMusicVolume);
-            layout.sfxVolume.onValueChanged.AddListener(ChangeSFXVolume);
+            //SCREEN
+            if (layout.fullscreen)
+            {
+                ToggleFullscreen(layout.fullscreen.isOn);
+                layout.fullscreen.onValueChanged.AddListener(ToggleFullscreen);
+            }
+            if (layout.disableFlashingColors)
+            {
+                layout.disableFlashingColors.onValueChanged.AddListener(ToggleFlashingColors);
+            }
+            if (layout.displayMode)
+            {
+                layout.displayMode.onValueChanged.AddListener(ChangeDisplayMode);
+            }
 
-            layout.mouseSensitivity.onValueChanged.AddListener(ChangeMouseSensitivity);
+            //NAVIGATION
 
-            layout.disableFlashingColors.onValueChanged.AddListener(ToggleFlashingColors);
-            layout.displayMode.onValueChanged.AddListener(ChangeDisplayMode);
-
-            layout.exitToMenu.onClick.AddListener(ExitToMenu);
-            layout.exitToDesktop.onClick.AddListener(ExitToDesktop);
-
-            layout.fullscreen.onValueChanged.AddListener(ToggleFullscreen);
+            if (layout.exitToMenu)
+            {
+                layout.exitToMenu.onClick.AddListener(ExitToMenu);
+            }
+            if (layout.exitToDesktop)
+            {
+                layout.exitToDesktop.onClick.AddListener(ExitToDesktop);
+            }
+            if (layout.closeWindow)
+            {
+                layout.closeWindow.onClick.AddListener(Close);
+            }
         }
     }
 
@@ -145,5 +178,9 @@ public class Settings : MonoBehaviour
     {
         Vector2Int res = screenResolutions[mode];
         Screen.SetResolution(res.x, res.y, isFullscreen);
+    }
+    void Close()
+    {
+        GameBrain.main.CloseSettings();
     }
 }

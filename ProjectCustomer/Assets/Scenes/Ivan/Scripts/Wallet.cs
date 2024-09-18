@@ -22,7 +22,11 @@ public class Wallet : MonoBehaviour
         {
             if (GlobalData.instance.isWalletUnlocked)
             {
-
+                if (GlobalData.instance.GetUIHintStatus(GlobalData.EHintBit.WALLET) )
+                {
+                    Debug.Log("fart");
+                    GlobalData.instance.SetUIHintVisibility((int)GlobalData.EHintBit.WALLET, false);
+                }
                 if (isOpen && GameBrain.main.gameState == GameState.INVENTORY)
                     Close();
                 else if (GameBrain.main.gameState == GameState.GAME)
