@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5829192437055639516}
   - component: {fileID: 1674261018718108522}
   - component: {fileID: 4911313575486787987}
+  - component: {fileID: 324816528171814007}
   m_Layer: 0
   m_Name: GameBrain
   m_TagString: Untagged
@@ -84,6 +85,7 @@ MonoBehaviour:
   _noise: {fileID: -3643660610922040406, guid: e5e160b8c6762ac44be596f83e5a9b09, type: 2}
   _noiseMaterial: {fileID: 2100000, guid: e51f86ca0b5ec0e40b43af0483977a87, type: 2}
   showInEditor: 0
+  fac: 0
 --- !u!82 &4911313575486787987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -181,6 +183,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &324816528171814007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388811012598548125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccaa0d31de0f9a843913ebc265dab4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bools: 0101
 --- !u!1 &7516773513137536773
 GameObject:
   m_ObjectHideFlags: 0
