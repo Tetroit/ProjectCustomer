@@ -62,6 +62,13 @@ TextAsset:
     \"fileID\": 4226590795470721273,\n                            \"guid\": \"9e9cbce989b8c9c468f10ee2c92c2260\",\n                           
     \"type\": 3\n                        },\n                        {\n                           
     \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"85f1a65cf46d4e0fb762591cf22ec338\",\n           
+    \"name\": \"ROOFF\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"915c9ccbf28649f0a12cab396625a755\",\n                    \"name\":
+    \"ROOF\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 1122623540866565394,\n                            \"guid\": \"3e79a689a5823e34283f175f44b1f93f\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
     }\n            ]\n        }\n    ],\n    \"_decoratorGroups\": [\n        {\n           
     \"guid\": \"3ec2fec9824e4d74bd3382b2be6e5058\",\n            \"name\": \"New
     Decor Group\",\n            \"_modules\": [\n                {\n                   
@@ -78,8 +85,13 @@ TextAsset:
     \"guid\": \"b4fde6b8c4c3f7b449ee85679ce13a7a\",\n                           
     \"type\": 3\n                        }\n                    ]\n               
     }\n            ],\n            \"_assetCategoryGuid\": \"cafd5b4d67394d29ae1012462a874e0c\"\n       
-    },\n        {\n            \"guid\": \"05c4eb447f7e4b64b680c3c41b3f46fd\",\n           
-    \"name\": \"New Decor Group\",\n            \"_modules\": [],\n            \"_assetCategoryGuid\":
-    \"\"\n        }\n    ],\n    \"_decoratorCategories\": [\n        {\n           
-    \"guid\": \"cafd5b4d67394d29ae1012462a874e0c\",\n            \"_name\": \"All\"\n       
+    },\n        {\n            \"guid\": \"5357e3418b99409e890ccdeafe7421f7\",\n           
+    \"name\": \"LAMP\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"a90838830c8b4b03804b9cffab92611f\",\n                    \"name\":
+    \"LAMP\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 3198510955275961354,\n                            \"guid\": \"3fe746e4a8dc65740b2da965964cc39d\",\n                           
+    \"type\": 3\n                        }\n                    ]\n               
+    }\n            ],\n            \"_assetCategoryGuid\": \"cafd5b4d67394d29ae1012462a874e0c\"\n       
+    }\n    ],\n    \"_decoratorCategories\": [\n        {\n            \"guid\":
+    \"cafd5b4d67394d29ae1012462a874e0c\",\n            \"_name\": \"All\"\n       
     }\n    ]\n}"
