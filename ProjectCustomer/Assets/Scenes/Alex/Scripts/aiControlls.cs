@@ -10,22 +10,18 @@ public class aiControlls : MonoBehaviour
         Talk
     }
 
-    public enum Enpc
-    {
-        Alex,
-        Ivan,
-        Jenifer
-    }
+    
 
     private EState currentState = EState.Idle;
-    [SerializeField] Enpc enpc;
-
     public NavMeshAgent agent;
     public Transform player;
-    public Dialogue dialoguePanel;
+    public DialogueManager dialogueManager;
+    public DialogueTrigger DialogueTrigger;
 
     public Vector3[] locations;
     private int currentLocationIndex = 0;
+
+    private bool isStarted = false;
 
     private void Start()
     {
@@ -54,10 +50,10 @@ public class aiControlls : MonoBehaviour
             currentState = EState.Talk;
         }
 
-        if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle)
+        if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle || dialogueManager.isDialogueFinished)
         {
             ResumeIdle();
-            dialoguePanel.ResetDialogue();
+            dialogueManager.isDialogueFinished = false;
         }
     }
 
@@ -85,11 +81,22 @@ public class aiControlls : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 
-        dialoguePanel.StartDialogue();
+        if(!isStarted)
+        {
+            DialogueTrigger.TriggerDialogue();
+            isStarted = true;
+        }
+        
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            dialogueManager.DisplayNextSentence();
+        }
     }
 
     public void ResumeIdle()
     {
+        dialogueManager.CloseDialogue();
+        isStarted = false;
         agent.isStopped = false;
         currentState = EState.Idle;
 

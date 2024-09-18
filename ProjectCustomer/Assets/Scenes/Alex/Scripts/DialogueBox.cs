@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using System.Diagnostics.CodeAnalysis;
 
-public class Dialogue : MonoBehaviour
+public class DialogueBox : MonoBehaviour
 {
     public aiControlls aiControlls;
     public TextMeshProUGUI textComponent;
