@@ -40,6 +40,14 @@ MonoBehaviour:
         prefabs:
         - {fileID: 3317837492034489170, guid: e707e24e4e18f9e4bac08c9c32fe30e9, type: 3}
         - {fileID: 0}
+    - guid: fd751d59fb90485e86fd3845a8259263
+      name: BUILD 7
+      _modules:
+      - guid: caf43507bbf94ea9a8c1bbb6226b32b8
+        name: BUILDING 7
+        prefabs:
+        - {fileID: 3317837492034489170, guid: e3e0af88195cd6c46a989f992eef84b8, type: 3}
+        - {fileID: 0}
     _floorGroups:
     - guid: 596849e8d88a439abfa805d3ca317f0a
       name: PAVEMENT
@@ -57,9 +65,14 @@ MonoBehaviour:
         prefabs:
         - {fileID: 4226590795470721273, guid: 2abf75159c060ce40bdf5b3c29bbe09b, type: 3}
         - {fileID: 0}
-    - guid: a22067bb5f15486585faa833ef3118e8
-      name: New Floor Group
-      _modules: []
+    - guid: 9e1a0aa058e6469ea42ab49fe5a42652
+      name: SmallROAD
+      _modules:
+      - guid: bcd1c566932c4c94b1bd4ed89258b5f0
+        name: SMALLroad
+        prefabs:
+        - {fileID: 4226590795470721273, guid: 9e9cbce989b8c9c468f10ee2c92c2260, type: 3}
+        - {fileID: 0}
     _decoratorGroups:
     - guid: 3ec2fec9824e4d74bd3382b2be6e5058
       name: New Decor Group
