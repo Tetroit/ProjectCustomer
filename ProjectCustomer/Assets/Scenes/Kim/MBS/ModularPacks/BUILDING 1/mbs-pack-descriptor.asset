@@ -31,6 +31,14 @@ TextAsset:
     \"fileID\": 3317837492034489170,\n                            \"guid\": \"e707e24e4e18f9e4bac08c9c32fe30e9\",\n                           
     \"type\": 3\n                        },\n                        {\n                           
     \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        },\n        {\n            \"guid\": \"fd751d59fb90485e86fd3845a8259263\",\n           
+    \"name\": \"BUILD 7\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"caf43507bbf94ea9a8c1bbb6226b32b8\",\n                    \"name\":
+    \"BUILDING 7\",\n                    \"prefabs\": [\n                       
+    {\n                            \"fileID\": 3317837492034489170,\n                           
+    \"guid\": \"e3e0af88195cd6c46a989f992eef84b8\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
     }\n            ]\n        }\n    ],\n    \"_floorGroups\": [\n        {\n           
     \"guid\": \"596849e8d88a439abfa805d3ca317f0a\",\n            \"name\": \"PAVEMENT\",\n           
     \"_modules\": [\n                {\n                    \"guid\": \"cc32f6798a3e4fe2af34ada964e3420b\",\n                   
@@ -47,14 +55,19 @@ TextAsset:
     \"guid\": \"2abf75159c060ce40bdf5b3c29bbe09b\",\n                           
     \"type\": 3\n                        },\n                        {\n                           
     \"instanceID\": 0\n                        }\n                    ]\n               
-    }\n            ]\n        },\n        {\n            \"guid\": \"a22067bb5f15486585faa833ef3118e8\",\n           
-    \"name\": \"New Floor Group\",\n            \"_modules\": []\n        }\n   
-    ],\n    \"_decoratorGroups\": [\n        {\n            \"guid\": \"3ec2fec9824e4d74bd3382b2be6e5058\",\n           
-    \"name\": \"New Decor Group\",\n            \"_modules\": [\n               
-    {\n                    \"guid\": \"cd44f8eab5e6451eb01896b6b5f09162\",\n                   
-    \"name\": \"BENCH\",\n                    \"prefabs\": [\n                       
-    {\n                            \"fileID\": 919132149155446097,\n                           
-    \"guid\": \"0bec3eea786de764abae15b167a0f860\",\n                           
+    }\n            ]\n        },\n        {\n            \"guid\": \"9e1a0aa058e6469ea42ab49fe5a42652\",\n           
+    \"name\": \"SmallROAD\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"bcd1c566932c4c94b1bd4ed89258b5f0\",\n                    \"name\":
+    \"SMALLroad\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 4226590795470721273,\n                            \"guid\": \"9e9cbce989b8c9c468f10ee2c92c2260\",\n                           
+    \"type\": 3\n                        },\n                        {\n                           
+    \"instanceID\": 0\n                        }\n                    ]\n               
+    }\n            ]\n        }\n    ],\n    \"_decoratorGroups\": [\n        {\n           
+    \"guid\": \"3ec2fec9824e4d74bd3382b2be6e5058\",\n            \"name\": \"New
+    Decor Group\",\n            \"_modules\": [\n                {\n                   
+    \"guid\": \"cd44f8eab5e6451eb01896b6b5f09162\",\n                    \"name\":
+    \"BENCH\",\n                    \"prefabs\": [\n                        {\n                           
+    \"fileID\": 919132149155446097,\n                            \"guid\": \"0bec3eea786de764abae15b167a0f860\",\n                           
     \"type\": 3\n                        }\n                    ]\n               
     }\n            ],\n            \"_assetCategoryGuid\": \"cafd5b4d67394d29ae1012462a874e0c\"\n       
     },\n        {\n            \"guid\": \"e90d9a3736024cf3b5ae824fed588ed2\",\n           
