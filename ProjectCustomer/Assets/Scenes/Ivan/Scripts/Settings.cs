@@ -18,9 +18,20 @@ public class Settings : MonoBehaviour
     protected float _mouseSensitivity;
     public float mouseSensitivity { get { return _mouseSensitivity; } }
 
-    const string MASTER = "masterVolume";
-    const string MUSIC = "musicVolume";
-    const string SFX = "sfxVolume";
+    public const string MASTER = "masterVolume";
+    public const string MUSIC = "musicVolume";
+    public const string SFX = "sfxVolume";
+
+    public const string PLAYER_GROUP = "Player";
+    public const string MASTER_GROUP = "Master";
+    public const string MUSIC_GROUP = "Music";
+    public const string SFX_GROUP = "SFX";
+
+
+    public AudioMixerGroup GetMixerChannel(string name)
+    {
+        return mixer.FindMatchingGroups(name)[0];
+    }
 
     Dictionary<int, Vector2Int> screenResolutions;
 
