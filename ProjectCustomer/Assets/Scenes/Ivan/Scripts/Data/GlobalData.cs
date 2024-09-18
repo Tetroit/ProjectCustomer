@@ -32,9 +32,9 @@ public class GlobalData : MonoBehaviour
         Debug.Log(UIHintFlags);
     }
 
-    public void UnlockWallet()
+    public static void UnlockWallet()
     {
-        isWalletUnlocked = true;
+        instance.isWalletUnlocked = true;
     }
     public void SetUIHintVisibility(int hintFlags, bool visibility) 
     {
