@@ -6,13 +6,16 @@ using UnityEngine;
 public class CarMotion : MonoBehaviour
 {
     public float wheelRadius;
+    public float backAxisDist;
+    public float frontAxisDist;
     public Transform[] frontWheels;
     public Transform[] backWheels;
     public float speed;
-    public Vector3 frontAxis = Vector3.right;
-    public Vector3 backAxis = Vector3.right;
-    float frontRotation = 0;
-    float backRotation = 0;
+
+    Vector3 frontAxis = Vector3.right;
+    Vector3 backAxis = Vector3.right;
+    public float frontRotation = 0;
+    public float backRotation = 0;
     float backSpeed = 0;
 
     [Range(-1f,1f)]
@@ -20,10 +23,8 @@ public class CarMotion : MonoBehaviour
 
     float baseLength { get { return frontAxisDist + backAxisDist; } }
 
-    public float steerRadius;
-    public float backAxisDist;
-    public float frontAxisDist;
-    public Vector3 rotationPoint;
+    float steerRadius;
+    Vector3 rotationPoint;
     void Start()
     {
         
@@ -34,7 +35,6 @@ public class CarMotion : MonoBehaviour
     {
 
         backAxis = transform.right;
-        speed = Mathf.Sin(Time.time) * 5;
         float step = speed * Time.deltaTime;
 
         if (steerRotation < -0.01f || steerRotation > 0.01f)
@@ -42,7 +42,15 @@ public class CarMotion : MonoBehaviour
         else
         {
             backSpeed = speed;
-            transform.localPosition += step * transform.forward;
+            transform.localPosition += step * transform.forward; 
+            foreach (Transform t in frontWheels)
+            {
+                t.localRotation = Quaternion.identity;
+            }
+            foreach (Transform t in backWheels)
+            {
+                t.localRotation = Quaternion.identity;
+            }
         }
 
         frontRotation += Mathf.Rad2Deg * speed / wheelRadius * Time.deltaTime;
