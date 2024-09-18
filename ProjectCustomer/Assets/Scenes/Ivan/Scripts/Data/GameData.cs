@@ -9,6 +9,7 @@ public interface ISaveData
     void LoadData(GameData data);
 }
 
+[System.Serializable]
 public class GameData
 {
 
