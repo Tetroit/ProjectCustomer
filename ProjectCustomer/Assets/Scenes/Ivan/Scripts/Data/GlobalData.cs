@@ -29,7 +29,6 @@ public class GlobalData : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(UIHintFlags);
     }
 
     public static void UnlockWallet()

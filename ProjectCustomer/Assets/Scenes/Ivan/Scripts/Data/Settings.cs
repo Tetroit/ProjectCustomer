@@ -111,6 +111,14 @@ public class Settings : MonoBehaviour
             {
                 layout.closeWindow.onClick.AddListener(Close);
             }
+            if (layout.save)
+            {
+                layout.save.onClick.AddListener(Save);
+            }
+            if (layout.load)
+            {
+                layout.load.onClick.AddListener(Load);
+            }
         }
     }
 
@@ -182,5 +190,13 @@ public class Settings : MonoBehaviour
     void Close()
     {
         GameBrain.main.CloseSettings();
+    }
+    void Save()
+    {
+        SaveManager.instance.SaveData();
+    }
+    void Load()
+    {
+        SaveManager.instance.LoadData();
     }
 }

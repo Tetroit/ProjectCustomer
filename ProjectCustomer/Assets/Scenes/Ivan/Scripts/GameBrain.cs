@@ -1,8 +1,6 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -28,6 +26,7 @@ public class GameBrain : MonoBehaviour
     public GameState startState = GameState.MENU;
     public GameState gameState { get; private set;}
     protected GameState _previousState = GameState.GAME;
+    public string gameScene = "amogus";
 
     private void Awake()
     {
@@ -147,20 +146,30 @@ public class GameBrain : MonoBehaviour
     {
         ChangeGameState(_previousState);
     }
-    public void StartGame(string scene)
+    public void StartGame()
     {
         CloseSettings();
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(gameScene);
         ChangeGameState(GameState.GAME);
     }
     public void ExitToMenu()
     {
+        if (SaveManager.instance)
+        {
+            SaveManager.instance.SaveData();
+            SaveManager.instance.WriteData();
+        }
         CloseSettings();
         SceneManager.LoadScene("Menu");
         ChangeGameState(GameState.MENU);
     }
     public void ExitToDesktop()
     {
+        if (SaveManager.instance)
+        {
+            SaveManager.instance.SaveData();
+            SaveManager.instance.WriteData();
+        }
         Application.Quit();
     }
 }

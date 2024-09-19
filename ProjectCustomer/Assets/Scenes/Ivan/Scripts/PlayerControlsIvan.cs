@@ -9,7 +9,7 @@ public enum EInputDevice
     Keyboard,
     Joystick
 }
-public class PlayerControlsIvan : MonoBehaviour
+public class PlayerControlsIvan : MonoBehaviour, ISaveData
 {
     public float movementSpeed = 5f;
     public float minAngle = 20f;
@@ -29,7 +29,6 @@ public class PlayerControlsIvan : MonoBehaviour
 
     Vector2 turn;
     Vector2 turnTarget;
-    Vector3 groundNormal;
     
     public Vector3 castOffset;
     public float castRadius;
@@ -58,7 +57,6 @@ public class PlayerControlsIvan : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
         if (GameBrain.main.gameState == GameState.GAME)
         {
             lockControls = false;
@@ -86,7 +84,7 @@ public class PlayerControlsIvan : MonoBehaviour
         if (cameraTransform)
             cameraTransform.localRotation = Quaternion.Euler(-turn.y, 0f, 0f);
 
-        rb.rotation = Quaternion.Euler(0f, turn.x, 0f);
+        transform.rotation = Quaternion.Euler(0f, turn.x, 0f);
     }
 
     private void Move()
@@ -104,7 +102,6 @@ public class PlayerControlsIvan : MonoBehaviour
             if (flatness > Mathf.Cos(criticalAngle))
             {
                 isGrounded = true;
-                groundNormal = c.normal;
             }
         }
         //if (!isGrounded)
@@ -206,5 +203,14 @@ public class PlayerControlsIvan : MonoBehaviour
             Gizmos.color = Color.magenta;
             Gizmos.DrawLine(contact.point, contact.point + contact.normal);
         }
+    }
+    public void LoadData(GameData gameData)
+    {
+        transform.position = gameData.playerPos;
+        Debug.Log("player loaded");
+    }
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.playerPos = transform.position; 
     }
 }

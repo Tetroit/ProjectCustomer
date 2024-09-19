@@ -12,5 +12,6 @@ public interface ISaveData
 [System.Serializable]
 public class GameData
 {
-
+    [SerializeField]
+    public Vector3 playerPos;
 }

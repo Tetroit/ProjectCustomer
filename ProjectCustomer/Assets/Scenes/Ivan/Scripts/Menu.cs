@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
-        GameBrain.main.StartGame(gameScene);
+        GameBrain.main.StartGame();
     }
     public void QuitGame()
     {
