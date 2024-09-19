@@ -9,10 +9,14 @@ public class Trigger : MonoBehaviour
 {
     [SerializeField] UnityEvent onTriggerEnter;
     [SerializeField] UnityEvent onTriggerExit;
+    public DialogueManager dialogueManager;
+    public DialogueTrigger dialogueTrigger;
 
     [SerializeField] string tagFilterName;
 
     [SerializeField] bool destroyOnTrigger;
+    private bool isStarted = false;
+    private bool isDialogueRunning = false;
 
     public event Action OnTriggeredEnter;
     public event Action OnTriggeredExit;
@@ -20,6 +24,14 @@ public class Trigger : MonoBehaviour
     private void Start()
     {
         
+    }
+
+    private void Update()
+    {
+        if(isDialogueRunning)
+        {
+            StartInnerMonologue();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,9 +59,9 @@ public class Trigger : MonoBehaviour
         OnTriggeredExit?.Invoke();
         //Compares whether objects with the assigned tag exits the trigger
         CheckTagsExit(other);
-
+        isDialogueRunning = true;
         // The trigger is destroyed when you exit it, so its activated only once
-        //DestroyTrigger();
+        DestroyTrigger();
     }
 
     private void CheckTagsEnter(Collider other)
@@ -65,6 +77,20 @@ public class Trigger : MonoBehaviour
         if(!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerExit.Invoke();
+        }
+    }
+
+    public void StartInnerMonologue()
+    {
+        if(!isStarted)
+        {
+            dialogueTrigger.TriggerDialogue();
+            isStarted = true;
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            dialogueManager.DisplayNextSentence();
         }
     }
 

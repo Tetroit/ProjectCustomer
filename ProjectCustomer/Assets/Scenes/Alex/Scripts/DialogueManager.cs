@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float textSpeed;
 
     public bool isDialogueFinished = false;
+    private bool isDialogueActive = false;
 
     void Start()
     {
@@ -84,10 +85,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void EndDialogue()
+    public void EndDialogue()
     {
         CloseDialogue();
     }
+
+    public bool IsDialogueComplete()
+    {
+        
+        return sentences.Count < 0 && !isDialogueActive;
+    }
+
     public void OpenDialogue()
     {
         animator.SetBool("IsOpen", true);
