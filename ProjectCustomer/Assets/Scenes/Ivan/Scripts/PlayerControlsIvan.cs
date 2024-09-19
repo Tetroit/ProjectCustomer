@@ -11,6 +11,8 @@ public enum EInputDevice
 }
 public class PlayerControlsIvan : MonoBehaviour, ISaveData
 {
+    public DialogueManager dialogueManager;
+
     public float movementSpeed = 5f;
     public float minAngle = 20f;
     public float maxAngle = 35f;
@@ -54,7 +56,13 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         {
             LookAround();
         }
+
+        if(!dialogueManager.isDialogueFinished && Input.GetKeyUp(KeyCode.F))
+        {
+            dialogueManager.DisplayNextSentence();
+        }
     }
+
     private void FixedUpdate()
     {
         if (GameBrain.main.gameState == GameState.GAME)

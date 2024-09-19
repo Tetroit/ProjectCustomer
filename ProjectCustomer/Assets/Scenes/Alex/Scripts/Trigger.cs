@@ -16,23 +16,9 @@ public class Trigger : MonoBehaviour
 
     [SerializeField] bool destroyOnTrigger;
     private bool isStarted = false;
-    private bool isDialogueRunning = false;
 
     public event Action OnTriggeredEnter;
     public event Action OnTriggeredExit;
-
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        if(isDialogueRunning)
-        {
-            StartInnerMonologue();
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -59,7 +45,8 @@ public class Trigger : MonoBehaviour
         OnTriggeredExit?.Invoke();
         //Compares whether objects with the assigned tag exits the trigger
         CheckTagsExit(other);
-        isDialogueRunning = true;
+        // trigger the dialogue
+        StartInnerMonologue();
         // The trigger is destroyed when you exit it, so its activated only once
         DestroyTrigger();
     }
@@ -82,15 +69,11 @@ public class Trigger : MonoBehaviour
 
     public void StartInnerMonologue()
     {
+
         if(!isStarted)
         {
             dialogueTrigger.TriggerDialogue();
             isStarted = true;
-        }
-
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            dialogueManager.DisplayNextSentence();
         }
     }
 

@@ -1,16 +1,20 @@
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class aiControlls : MonoBehaviour
 {
     public enum EState
     {
         Idle,
+        Walk,
         Talk
     }
 
-    
+
 
     private EState currentState = EState.Idle;
     [SerializeField] Animator animator;
@@ -18,10 +22,13 @@ public class aiControlls : MonoBehaviour
     public Transform player;
     public DialogueManager dialogueManager;
     public DialogueTrigger DialogueTrigger;
-    
+
 
     public Vector3[] locations;
     private int currentLocationIndex = 0;
+
+    private Vector3 targetPosition = Vector3.zero;
+    private float reachRange = 0.2f;
 
     private bool isStarted = false;
 
@@ -45,6 +52,9 @@ public class aiControlls : MonoBehaviour
             case EState.Talk:
                 HandleTalkState();
                 break;
+            case EState.Walk:
+                HandleWalkState();
+                break;
         }
 
         if(Vector3.Distance(transform.position, player.position) < 4f && Input.GetKeyDown(KeyCode.E))
@@ -52,24 +62,56 @@ public class aiControlls : MonoBehaviour
             currentState = EState.Talk;
         }
 
-        if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle || dialogueManager.isDialogueFinished)
+        if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle && currentState != EState.Walk && dialogueManager.isDialogueFinished)
         {
-            ResumeIdle();
+            if(locations.Length > 0)
+            {
+                ResumeWalking();
+            } else
+            {
+                ResumeIdle();
+            }
+
             dialogueManager.isDialogueFinished = false;
         }
     }
 
+    private void SetDestination(Vector3 destination)
+    {
+        if (!NavMesh.SamplePosition(destination, out NavMeshHit hit, 1f, 1))
+        {
+            Debug.LogError($"Failed to find position");
+            return;
+        }
+
+        targetPosition = hit.position;
+        agent.SetDestination(targetPosition);
+    }
+
     private void MoveToNextLocation()
     {
-        //animator.SetBool("Walking", true);
+        animator.SetBool("Walking", true);
         if(locations.Length > 0)
         {
-            agent.SetDestination(locations[currentLocationIndex]);
+            SetDestination(locations[currentLocationIndex]);
             currentLocationIndex = (currentLocationIndex + 1) % locations.Length;
         }
     }
 
     private void HandleIdleState()
+    {
+        if(locations == null || locations.Length == 0)
+        {
+            animator.SetBool("Walking", false);
+            agent.isStopped = true;
+        } else
+        {
+            agent.isStopped = false;
+            currentState = EState.Walk;
+        }
+    }
+
+    private void HandleWalkState()
     {
         if(!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
@@ -79,7 +121,7 @@ public class aiControlls : MonoBehaviour
 
     private void HandleTalkState()
     {
-        //animator.SetBool("Walking", false);
+        animator.SetBool("Walking", false);
         agent.isStopped = true;
         Vector3 aiToPlayer = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
@@ -90,20 +132,17 @@ public class aiControlls : MonoBehaviour
             DialogueTrigger.TriggerDialogue();
             isStarted = true;
         }
-        
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            dialogueManager.DisplayNextSentence();
-        }
     }
 
-    public void ResumeIdle()
+    public void ResumeWalking()
     {
-        //animator.SetBool("Walking", true);
+        Debug.Log($"resume walking");
+
+        currentState = EState.Walk;
         dialogueManager.CloseDialogue();
-        isStarted = false;
+        animator.SetBool("Walking", true);
         agent.isStopped = false;
-        currentState = EState.Idle;
+        isStarted = false;
 
         if(locations.Length > 0)
         {
@@ -111,5 +150,14 @@ public class aiControlls : MonoBehaviour
             agent.SetDestination(locations[targetIndex]);
             currentLocationIndex = (currentLocationIndex) % locations.Length;
         }
+    }
+
+    public void ResumeIdle()
+    {
+        animator.SetBool("Walking", false);
+        dialogueManager.CloseDialogue();
+        isStarted = false;
+        agent.isStopped = true;
+        currentState = EState.Idle;
     }
 }
