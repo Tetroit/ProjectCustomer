@@ -99,7 +99,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistanceFac: 1
     - _DistancePreview: 0
-    - _DistanceScale: 0.13833195
+    - _DistanceScale: 0.09880682
     - _DistanceShift: -0.2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
@@ -131,7 +131,7 @@ Material:
     - _BaseColor: {r: 1, g: 0.4198113, b: 0.4198113, a: 1}
     - _Color: {r: 0.24052387, g: 0.24052387, b: 0.24052387, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _NoiseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _NoiseColor: {r: 0.03588742, g: 0.03588742, b: 0.03588742, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3737352289658557740
