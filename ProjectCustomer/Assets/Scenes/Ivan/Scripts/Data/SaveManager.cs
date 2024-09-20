@@ -12,12 +12,13 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
     public List<ISaveData> listeners;
     public GameData gameData = new GameData();
+    bool newSave = false;
 
     private void Awake()
     {
         if (instance == null)
         {
-            ReadData();
+            newSave = ReadData();
             instance = this;
         }
         else if (instance != this)
@@ -40,7 +41,7 @@ public class SaveManager : MonoBehaviour
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
         FindListeners();
-        LoadData();
+        if (!newSave) LoadData();
     }
     private void OnSceneUnload(Scene scene)
     {
@@ -66,18 +67,21 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public void ReadData()
+    public bool ReadData()
     {
         gameData = FileManager.ReadFromFile<GameData>(fileName);
         if (gameData == null)
         {
             Debug.Log("created new save data");
             gameData = new GameData();
+            return true;
         }
+        return false;
     }
     public void WriteData()
     {
         FileManager.WriteToFile(fileName, gameData);
+        newSave = false;
     }
 
     public void FindListeners()
