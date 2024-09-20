@@ -95,6 +95,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6480078656859468126, guid: 4dd4179fad503994dad5a05a9f1d95f4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.62
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
