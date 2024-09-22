@@ -9,7 +9,6 @@ public class GlobalData : MonoBehaviour, ISaveData
     public static GlobalData instance;
     public bool isWalletUnlocked = false;
     private int UIHintFlags = 3;
-    private int mainQuestLine = 0;
     public MainScriptState storyProgress;
 
 

@@ -7,11 +7,11 @@ using UnityEngine.Rendering.Universal;
 [ExecuteInEditMode]
 public class NoiseManager : MonoBehaviour
 {
-
+    public static NoiseManager instance;
     public ScriptableRendererFeature _noise;
     public Material _noiseMaterial;
     public bool showInEditor = false;
-
+    
     [Range(0f, 1f)]
     public float fac = 0;
     public float intensity
@@ -55,6 +55,23 @@ public class NoiseManager : MonoBehaviour
         set { _noiseMaterial.SetColor("_NoiseColor", value); }
     }
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this);
+        }
+
+        if (Application.isPlaying)
+        {
+            _noise.SetActive(true);
+        }
+    }
+
     void Start()
     {
         if (Application.isPlaying)
@@ -71,18 +88,10 @@ public class NoiseManager : MonoBehaviour
         {
             intensity = fac * 0.03f;
             distanceScale = fac * (Mathf.Sin(Time.time) * 0.1f + 0.15f);
-            color = Color.Lerp(Color.white, Color.black, Mathf.Cos(Time.time/2));
-
+            color = Color.black;
         }
     }
 
-    private void Awake()
-    {
-        if (Application.isPlaying)
-        {
-            _noise.SetActive(true);
-        }
-    }
     private void OnValidate()
     {
         if (!Application.isPlaying)
