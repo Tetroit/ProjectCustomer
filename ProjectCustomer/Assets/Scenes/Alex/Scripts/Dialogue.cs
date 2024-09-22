@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Dialogue
+public class DialogueLine
 {
     public string name;
 
     [TextArea(3, 10)]
-    public string[] firstDialogue;
+    public string sentence;
+}
 
-    [TextArea(3, 10)]
-    public string[] secondDialogue;
-
+[System.Serializable]
+public class Dialogue
+{
+    [SerializeField]
+    public DialogueLine[] firstDialogue;
+    [SerializeField]
+    public DialogueLine[] secondDialogue;
 }

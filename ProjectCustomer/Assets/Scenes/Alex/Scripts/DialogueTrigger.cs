@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [SerializeField]
     public Dialogue dialogue;
 
     private bool hasPlayedFirstDialogue = false;
