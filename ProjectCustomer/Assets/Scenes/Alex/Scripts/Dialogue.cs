@@ -1,17 +1,14 @@
 using UnityEngine;
 
 [System.Serializable]
-public class DialogueLine
+public class Dialogue
 {
     public string name;
 
     [TextArea(3, 10)]
-    public string sentence;
-}
+    public string[] firstDialogue;
 
-[System.Serializable]
-public class Dialogue
-{
-    public DialogueLine[] firstDialogue;
-    public DialogueLine[] secondDialogue;
+    [TextArea(3, 10)]
+    public string[] secondDialogue;
+
 }
