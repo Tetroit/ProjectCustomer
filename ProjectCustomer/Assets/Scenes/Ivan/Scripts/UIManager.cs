@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        GlobalData.instance.OnUIHintFlagsChanged.AddListener(UpdateHintsStatus);
+        GlobalData.instance.OnUIHintFlagsChanged += UpdateHintsStatus;
         UpdateHintsStatus();
     }
 

@@ -12,5 +12,9 @@ public interface ISaveData
 public class GameData
 {
     [SerializeField]
-    public Vector3 playerPos;
+    public Vector3 playerPos = Vector3.zero;
+    [SerializeField]
+    public int UIflags = 0;
+    [SerializeField]
+    public int storyProgress = 0;
 }

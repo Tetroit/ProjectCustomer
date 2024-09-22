@@ -23,7 +23,6 @@ public class MaterialManager : MonoBehaviour
     private void Start()
     {
         RemoveRecognisable(0);
-
     }
     public void SetRecognisable(int materialID)
     {
