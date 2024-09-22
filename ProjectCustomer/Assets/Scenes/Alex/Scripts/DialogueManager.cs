@@ -9,8 +9,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI dialogueText;
 
-    private Queue<string> sentences;
-    private Queue<Dialogue> dialogueQueue;
+    private Queue<DialogueLine> dialogueLines;
 
     [SerializeField] Animator animator;
 
@@ -20,8 +19,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        sentences = new Queue<string>();
-        dialogueQueue = new Queue<Dialogue>();
+        dialogueLines = new Queue<DialogueLine>();
     }
 
     void Update()
@@ -33,12 +31,11 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueFinished = false;
         OpenDialogue();
-        nameText.text = dialogue.name;
-        sentences.Clear();
+        dialogueLines.Clear();
 
-        foreach(string sentence in dialogue.firstDialogue)
+        foreach(DialogueLine line in dialogue.firstDialogue)
         {
-            sentences.Enqueue(sentence);
+            dialogueLines.Enqueue(line);
         }
 
         DisplayNextSentence();
@@ -48,13 +45,11 @@ public class DialogueManager : MonoBehaviour
     {
         isDialogueFinished = false;
         OpenDialogue();
-        nameText.text = dialogue.name;
-        sentences.Clear();
+        dialogueLines.Clear();
 
-        // Enqueue second dialogue sentences
-        foreach(string sentence in dialogue.secondDialogue)
+        foreach(DialogueLine line in dialogue.secondDialogue)
         {
-            sentences.Enqueue(sentence);
+            dialogueLines.Enqueue(line);
         }
 
         DisplayNextSentence();
@@ -62,16 +57,17 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if(dialogueLines.Count == 0)
         {
             isDialogueFinished = true;
             EndDialogue();
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        DialogueLine dialogLine = dialogueLines.Dequeue();
+        nameText.text = dialogLine.name;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(dialogLine.sentence));
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -84,7 +80,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-
+    
 
     private void EndDialogue()
     {
