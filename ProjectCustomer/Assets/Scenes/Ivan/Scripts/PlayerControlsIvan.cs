@@ -55,11 +55,11 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         if (GameBrain.main.gameState == GameState.GAME)
         {
             LookAround();
-        }
 
-        if(!dialogueManager.isDialogueFinished && Input.GetKeyUp(KeyCode.F))
-        {
-            dialogueManager.DisplayNextSentence();
+            if (dialogueManager != null && !dialogueManager.isDialogueFinished && Input.GetKeyUp(KeyCode.F))
+            {
+                dialogueManager.DisplayNextSentence();
+            }
         }
     }
 
