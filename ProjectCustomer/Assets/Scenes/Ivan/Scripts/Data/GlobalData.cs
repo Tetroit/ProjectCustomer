@@ -17,6 +17,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     public enum MainScriptState
     {
         START = 0,
+        START_MONOLOGUE = 1,
         CHURCH = 10,
         MARKET = 20,
         CAFE = 30,
