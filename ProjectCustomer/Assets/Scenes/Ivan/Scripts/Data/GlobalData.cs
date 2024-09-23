@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 public class GlobalData : MonoBehaviour, ISaveData
 {
-    [SerializeField] private Transform teleportLocation;
+    [SerializeField] private Transform teleportLocationPark;
+    [SerializeField] private Transform teleportLocationNursery;
     public static GlobalData instance;
     public bool isWalletUnlocked = false;
     private int UIHintFlags = 3;
@@ -88,18 +89,22 @@ public class GlobalData : MonoBehaviour, ISaveData
         {
             case "OldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME);
-                TeleportPlayer();
+                TeleportPlayer(teleportLocationPark);
+                break;
+            case "NurseDialogue":
+                UpdateStory(MainScriptState.NURSERY);
+                TeleportPlayer(teleportLocationNursery);
                 break;
         }
     }
 
-    private void TeleportPlayer()
+    private void TeleportPlayer(Transform location)
     {
         GameObject player = GameObject.FindWithTag("Player");
 
         if(player != null)
         {
-            player.transform.position = teleportLocation.position;
+            player.transform.position = location.position;
         } else
         {
             Debug.LogWarning("Player object not found. Cannot teleport.");

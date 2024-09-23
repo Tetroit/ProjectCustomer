@@ -67,6 +67,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
             {
                 dialogueManager.DisplayNextSentence();
             }
+
+
         }
     }
 
