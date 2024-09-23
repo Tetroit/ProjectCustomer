@@ -35,6 +35,8 @@ public class aiControlls : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        agent.updatePosition = false;
     }
 
     private void Update()
