@@ -102,7 +102,7 @@ public class aiControlls : MonoBehaviour
     {
         if(locations == null || locations.Length == 0)
         {
-            animator.SetBool("Walking", false);
+            //animator.SetBool("Walking", false);
             agent.isStopped = true;
         } else
         {

@@ -15,29 +15,22 @@ public class Trigger : MonoBehaviour
     [SerializeField] string tagFilterName;
 
     [SerializeField] bool destroyOnTrigger;
-    private bool isStarted = false;
+    private bool isStartedInnerMonologue = false;
+    private bool isStartedInnerMonologue2 = false;
 
     public event Action OnTriggeredEnter;
     public event Action OnTriggeredExit;
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 triggerToPlayer = other.transform.position - transform.position;
-
-        float dotProduct = Vector3.Dot(transform.forward, triggerToPlayer.normalized);
-
-        if(dotProduct > 0.5f)
-        {
-            OnTriggeredEnter?.Invoke();
-            //Compares whether objects with the assigned tag passes through the trigger
-            CheckTagsEnter(other);
-
-            // The trigger is destroyed when you enter it, so its activated only once
-            DestroyTrigger();
-        } else
-        {
-            Debug.Log("Trigger not activated because the player is not facing the trigger.");
-        } 
+        OnTriggeredEnter?.Invoke();
+        //Compares whether objects with the assigned tag passes through the trigger
+        Debug.Log("Enter");
+        CheckTagsEnter(other);
+        OldHouseInnerMonologue();
+        GlobalData.instance.UpdateStory(GlobalData.MainScriptState.OLD_HOME);
+        // The trigger is destroyed when you enter it, so its activated only once
+        DestroyTrigger();
     }
 
     private void OnTriggerExit(Collider other)
@@ -46,6 +39,7 @@ public class Trigger : MonoBehaviour
         //Compares whether objects with the assigned tag exits the trigger
         CheckTagsExit(other);
         // trigger the dialogue
+        Debug.Log("Exit");
         StartInnerMonologue();
         GlobalData.instance.UpdateStory(GlobalData.MainScriptState.START);
         // The trigger is destroyed when you exit it, so its activated only once
@@ -54,7 +48,7 @@ public class Trigger : MonoBehaviour
 
     private void CheckTagsEnter(Collider other)
     {
-        if(!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
+        if (!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerEnter.Invoke();
         }
@@ -62,7 +56,7 @@ public class Trigger : MonoBehaviour
 
     private void CheckTagsExit(Collider other)
     {
-        if(!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
+        if (!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerExit.Invoke();
         }
@@ -71,16 +65,25 @@ public class Trigger : MonoBehaviour
     public void StartInnerMonologue()
     {
 
-        if(!isStarted)
+        if (!isStartedInnerMonologue)
         {
             dialogueTrigger.TriggerDialogue();
-            isStarted = true;
+            isStartedInnerMonologue = true;
+        }
+    }
+
+    public void OldHouseInnerMonologue()
+    {
+        if (!isStartedInnerMonologue2)
+        {
+            dialogueTrigger.TriggerDialogue();
+            isStartedInnerMonologue2 = true;
         }
     }
 
     private void DestroyTrigger()
     {
-        if(destroyOnTrigger)
+        if (destroyOnTrigger)
         {
             Destroy(gameObject);
         }
