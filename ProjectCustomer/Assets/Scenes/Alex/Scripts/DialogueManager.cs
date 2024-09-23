@@ -10,9 +10,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI dialogueText;
 
-    private string dialogueName;
+    public string dialogueName;
     bool isSecondDialogue;
-    private Queue<DialogueLine> dialogueLines;
+    public Queue<DialogueLine> dialogueLines;
 
     [SerializeField] Animator animator;
 
@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        Debug.Log("first");
         dialogueName = dialogue.dialogueName;
 
         isDialogueFinished = false;
@@ -56,6 +57,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartSecondDialogue(Dialogue dialogue)
     {
+        Debug.Log("second");
         dialogueName = dialogue.dialogueName;
 
         isDialogueFinished = false;

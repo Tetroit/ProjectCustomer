@@ -17,7 +17,8 @@ public class DialogueTrigger : MonoBehaviour
             dialogueManager.StartDialogue(dialogue);
             hasPlayedFirstDialogue = true;
 
-        } else
+        }
+        else
         {
             dialogueManager.StartSecondDialogue(dialogue);
         }
