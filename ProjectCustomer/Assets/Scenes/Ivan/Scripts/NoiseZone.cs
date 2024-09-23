@@ -52,7 +52,7 @@ public class NoiseZone : MonoBehaviour
             zonesUpdated++;
             if (zonesUpdated == collection.Count)
             {
-                Debug.Log("" + zonesUpdated + " " + distFac);
+                //Debug.Log("" + zonesUpdated + " " + distFac);
                 NoiseManager.instance.fac = maxFac;
                 zonesUpdated = 0;
                 maxFac = 0;
