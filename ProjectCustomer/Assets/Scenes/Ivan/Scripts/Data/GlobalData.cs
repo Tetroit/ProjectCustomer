@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 
 public class GlobalData : MonoBehaviour, ISaveData
 {
+    [SerializeField] private Transform teleportLocation;
     public static GlobalData instance;
     public bool isWalletUnlocked = false;
     private int UIHintFlags = 3;
@@ -81,6 +82,27 @@ public class GlobalData : MonoBehaviour, ISaveData
 
     public void DialogueEnded(string name)
     {
-        Debug.Log(name);
+        Debug.Log($"Dialogue '{name}' has ended.");
+
+        switch(name)
+        {
+            case "OldHouseDialogue":
+                UpdateStory(MainScriptState.OLD_HOME);
+                TeleportPlayer();
+                break;
+        }
+    }
+
+    private void TeleportPlayer()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+
+        if(player != null)
+        {
+            player.transform.position = teleportLocation.position;
+        } else
+        {
+            Debug.LogWarning("Player object not found. Cannot teleport.");
+        }
     }
 }
