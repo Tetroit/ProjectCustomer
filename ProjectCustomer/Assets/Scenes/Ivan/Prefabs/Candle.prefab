@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 2001176051613453070}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2485569, y: -0.5971271, z: 14.82046}
+  m_LocalPosition: {x: 0, y: 1.532, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -123,11 +123,11 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001176051613453070}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7712603, b: 0.25943398, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -170,10 +170,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 1.23e-43, z: 2.203e-41, w: 7.565337e+28}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 7.3e-44, z: 2.1993e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -227,10 +227,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3968894853459237327}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.24, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.336, z: 0}
   m_LocalScale: {x: 0.22218, y: 0.22218, z: 0.22218}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8683086347413382666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4020,7 +4020,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 5108860490871036517}
     randomDistribution: 1
@@ -5078,6 +5078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98cdbdfe722fd04c8eefb1d951492dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  light: {fileID: 5108860490871036517}
   fire: {fileID: 8424813503342527053}
   isLit: 1
 --- !u!1 &4310637478421783464

@@ -10,6 +10,7 @@ public enum GameState
     SETTINGS,
     INVENTORY,
     DIALOGUE,
+    CUTSCENE,
 }
 public class GameBrain : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class GameBrain : MonoBehaviour
     {
         gameState = startState;
         _previousState = startState;
+        SetGameState(gameState);
 
         if (settingsWindow == null)
             settingsWindow = GetComponentInChildren<Canvas>();
@@ -108,12 +110,8 @@ public class GameBrain : MonoBehaviour
         ChangeGameState(_previousState);
     }
 
-    public void ChangeGameState(GameState state)
+    void SetGameState(GameState state)
     {
-        if (gameState == state) return;
-        _previousState = gameState;
-        gameState = state;
-
         switch (state)
         {
             case GameState.GAME:
@@ -140,7 +138,21 @@ public class GameBrain : MonoBehaviour
                     Cursor.visible = true;
                     break;
                 }
+            case GameState.CUTSCENE:
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    break;
+                }
+            }
         }
+    public void ChangeGameState(GameState state)
+    {
+        Debug.Log("Changed game state to " + state);
+        if (gameState == state) return;
+        _previousState = gameState;
+        gameState = state;
+        SetGameState(state);
     }
     public void ReturnToPreviousState()
     {

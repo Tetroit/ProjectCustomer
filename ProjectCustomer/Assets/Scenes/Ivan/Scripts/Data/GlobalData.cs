@@ -54,7 +54,8 @@ public class GlobalData : MonoBehaviour, ISaveData
     }
     void Start()
     {
-        DialogueManager.instance.OnDialogueEnd.AddListener(DialogueEnded);
+        if (DialogueManager.instance != null)       
+            DialogueManager.instance.OnDialogueEnd.AddListener(DialogueEnded);
     }
     void Update()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting.FullSerializer;
+using UnityEngine.Playables;
 
 public enum EInputDevice
 {
@@ -40,6 +41,9 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
     public Transform cameraTransform;
     Rigidbody rb;
 
+    public Transform candlePlayerPos;
+    public GameObject candle;
+
     private void Start()
     {
         isSafe = true;
@@ -48,9 +52,6 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         {
             cameraTransform.localRotation = transform.rotation;
         }
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -226,5 +227,70 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
     public void SaveData(ref GameData gameData)
     {
         gameData.playerPos = transform.position; 
+    }
+
+
+    public IEnumerator CandleAnimation()
+    {
+        candle.GetComponent<Candle>().Extinguish();
+        candle.SetActive(false);
+
+        GameBrain.main.ChangeGameState(GameState.CUTSCENE);
+        float animationTime = 6;
+        float currentAnimationTime = 0;
+        float lerpKeyframe = 2;
+
+        bool candleLit = false;
+
+        float candleLightKeyframe = 3f;
+
+        lockControls = true;
+        rb.isKinematic = true;
+
+        turn.y = -candlePlayerPos.rotation.eulerAngles.x;
+        turn.x = candlePlayerPos.rotation.eulerAngles.y;
+        turnTarget = turn;
+
+        while (currentAnimationTime < lerpKeyframe)
+        {
+            float fac = currentAnimationTime / lerpKeyframe;
+            transform.position = Vector3.Lerp(transform.position, candlePlayerPos.position, 0.02f);
+            cameraTransform.rotation = Quaternion.Slerp(cameraTransform.rotation, candlePlayerPos.rotation, 0.02f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, candlePlayerPos.rotation.eulerAngles.y, 0), 0.02f);
+
+            currentAnimationTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        candle.SetActive(true);
+        Animation anim = candle.GetComponent<Animation>();
+        anim.Play();
+
+        while (currentAnimationTime < animationTime)
+        {
+            float fac = (currentAnimationTime - lerpKeyframe) / currentAnimationTime;
+            //transform.position = Vector3.Lerp(transform.position, Vector3.zero, 0.01f);
+
+            if (currentAnimationTime > candleLightKeyframe && !candleLit)
+            {
+                candleLit = true;
+                candle.GetComponent<Candle>().LightUp();
+            }
+
+            currentAnimationTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        //candle.transform.position = candlePlacePos.transform.position;
+        //candle.transform.rotation = candlePlacePos.transform.rotation;
+        rb.isKinematic = false;
+        lockControls = false;
+        GameBrain.main.ChangeGameState(GameState.GAME);
+        yield return null;
+    }
+
+    public void PlayCandleAnimation()
+    {
+        StartCoroutine(CandleAnimation());
     }
 }
