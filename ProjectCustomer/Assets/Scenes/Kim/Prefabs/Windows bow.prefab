@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4260347d850b42f4a8cda8150f613508, type: 2}
+  - {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,6 +130,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8326706768192195149}
     m_Modifications:
+    - target: {fileID: 6132568753603294737, guid: 548be9f61e682fe49a9201e65cba7d57,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 7829501376378972368, guid: 548be9f61e682fe49a9201e65cba7d57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -204,6 +209,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8326706768192195149}
     m_Modifications:
+    - target: {fileID: 6132568753603294737, guid: 548be9f61e682fe49a9201e65cba7d57,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 7829501376378972368, guid: 548be9f61e682fe49a9201e65cba7d57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -283,6 +293,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window with bow (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5474021374682941534, guid: f563fbf75145d05469f25170ee3d1742,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
+    - target: {fileID: 6613112585460227480, guid: f563fbf75145d05469f25170ee3d1742,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 8992615139256794745, guid: f563fbf75145d05469f25170ee3d1742,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -357,6 +377,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window with bow (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5474021374682941534, guid: f563fbf75145d05469f25170ee3d1742,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
+    - target: {fileID: 6613112585460227480, guid: f563fbf75145d05469f25170ee3d1742,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 8992615139256794745, guid: f563fbf75145d05469f25170ee3d1742,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,6 +456,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8326706768192195149}
     m_Modifications:
+    - target: {fileID: 6132568753603294737, guid: 548be9f61e682fe49a9201e65cba7d57,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 7829501376378972368, guid: 548be9f61e682fe49a9201e65cba7d57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -500,6 +535,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8326706768192195149}
     m_Modifications:
+    - target: {fileID: 6132568753603294737, guid: 548be9f61e682fe49a9201e65cba7d57,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 7829501376378972368, guid: 548be9f61e682fe49a9201e65cba7d57,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -579,6 +619,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Window with bow (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5474021374682941534, guid: f563fbf75145d05469f25170ee3d1742,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
+    - target: {fileID: 6613112585460227480, guid: f563fbf75145d05469f25170ee3d1742,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a763ed30f392274da0619f97e4b2492, type: 2}
     - target: {fileID: 8992615139256794745, guid: f563fbf75145d05469f25170ee3d1742,
         type: 3}
       propertyPath: m_LocalPosition.x
