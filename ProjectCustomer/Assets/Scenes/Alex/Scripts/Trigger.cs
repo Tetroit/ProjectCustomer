@@ -15,8 +15,10 @@ public class Trigger : MonoBehaviour
     [SerializeField] string tagFilterName;
 
     [SerializeField] bool destroyOnTrigger;
+    private bool isStarted = false;
     private bool isStartedInnerMonologue = false;
     private bool isStartedOldHouseInnerDialogue = false;
+    private bool isStartedParkInnerMonologue = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -52,6 +54,15 @@ public class Trigger : MonoBehaviour
         if (!string.IsNullOrEmpty(tagFilterName) && other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerExit.Invoke();
+        }
+    }
+
+    public void TriggerDialogue()
+    {
+        if(!isStarted)
+        {
+            dialogueTrigger.TriggerDialogue();
+            isStarted = true;
         }
     }
 
