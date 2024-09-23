@@ -18,17 +18,12 @@ public class Trigger : MonoBehaviour
     private bool isStartedInnerMonologue = false;
     private bool isStartedOldHouseInnerDialogue = false;
 
-    public event Action OnTriggeredEnter;
-    public event Action OnTriggeredExit;
-
     private void OnTriggerEnter(Collider other)
     {
-        OnTriggeredEnter?.Invoke();
         //Compares whether objects with the assigned tag passes through the trigger
-        Debug.Log("Enter");
         CheckTagsEnter(other);
 
-            OldHouseInnerMonologue();
+        //OldHouseInnerMonologue();
 
         // The trigger is destroyed when you enter it, so its activated only once
         DestroyTrigger();
@@ -36,19 +31,17 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        OnTriggeredExit?.Invoke();
         //Compares whether objects with the assigned tag exits the trigger
         CheckTagsExit(other);
         // trigger the dialogue
-        Debug.Log("Exit");
-        StartInnerMonologue();
+        //StartInnerMonologue();
         // The trigger is destroyed when you exit it, so its activated only once
         DestroyTrigger();
     }
 
     private void CheckTagsEnter(Collider other)
     {
-        if (!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
+        if (!string.IsNullOrEmpty(tagFilterName) && other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerEnter.Invoke();
         }
@@ -56,7 +49,7 @@ public class Trigger : MonoBehaviour
 
     private void CheckTagsExit(Collider other)
     {
-        if (!string.IsNullOrEmpty(tagFilterName) && !other.gameObject.CompareTag(tagFilterName))
+        if (!string.IsNullOrEmpty(tagFilterName) && other.gameObject.CompareTag(tagFilterName))
         {
             onTriggerExit.Invoke();
         }
