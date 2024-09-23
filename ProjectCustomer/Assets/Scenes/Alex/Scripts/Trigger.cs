@@ -16,7 +16,7 @@ public class Trigger : MonoBehaviour
 
     [SerializeField] bool destroyOnTrigger;
     private bool isStartedInnerMonologue = false;
-    private bool isStartedInnerMonologue2 = false;
+    private bool isStartedOldHouseInnerDialogue = false;
 
     public event Action OnTriggeredEnter;
     public event Action OnTriggeredExit;
@@ -27,8 +27,9 @@ public class Trigger : MonoBehaviour
         //Compares whether objects with the assigned tag passes through the trigger
         Debug.Log("Enter");
         CheckTagsEnter(other);
-        OldHouseInnerMonologue();
-        GlobalData.instance.UpdateStory(GlobalData.MainScriptState.OLD_HOME);
+
+            OldHouseInnerMonologue();
+
         // The trigger is destroyed when you enter it, so its activated only once
         DestroyTrigger();
     }
@@ -41,7 +42,6 @@ public class Trigger : MonoBehaviour
         // trigger the dialogue
         Debug.Log("Exit");
         StartInnerMonologue();
-        GlobalData.instance.UpdateStory(GlobalData.MainScriptState.START);
         // The trigger is destroyed when you exit it, so its activated only once
         DestroyTrigger();
     }
@@ -74,10 +74,10 @@ public class Trigger : MonoBehaviour
 
     public void OldHouseInnerMonologue()
     {
-        if (!isStartedInnerMonologue2)
+        if (!isStartedOldHouseInnerDialogue)
         {
             dialogueTrigger.TriggerDialogue();
-            isStartedInnerMonologue2 = true;
+            isStartedOldHouseInnerDialogue = true;
         }
     }
 
