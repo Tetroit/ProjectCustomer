@@ -47,9 +47,9 @@ public class Trigger : MonoBehaviour
         CheckTagsExit(other);
         // trigger the dialogue
         StartInnerMonologue();
+        GlobalData.instance.UpdateStory(GlobalData.MainScriptState.START);
         // The trigger is destroyed when you exit it, so its activated only once
         DestroyTrigger();
-        GlobalData.instance.UpdateStory(GlobalData.MainScriptState.START);
     }
 
     private void CheckTagsEnter(Collider other)
