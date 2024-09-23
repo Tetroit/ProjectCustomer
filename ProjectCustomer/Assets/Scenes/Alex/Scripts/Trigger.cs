@@ -18,12 +18,8 @@ public class Trigger : MonoBehaviour
     private bool isStartedInnerMonologue = false;
     private bool isStartedOldHouseInnerDialogue = false;
 
-    public event Action OnTriggeredEnter;
-    public event Action OnTriggeredExit;
-
     private void OnTriggerEnter(Collider other)
     {
-        OnTriggeredEnter?.Invoke();
         //Compares whether objects with the assigned tag passes through the trigger
         CheckTagsEnter(other);
 
@@ -35,7 +31,6 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        OnTriggeredExit?.Invoke();
         //Compares whether objects with the assigned tag exits the trigger
         CheckTagsExit(other);
         // trigger the dialogue
