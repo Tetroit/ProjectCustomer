@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class DialogueLine
@@ -14,6 +15,8 @@ public class DialogueLine
 [System.Serializable]
 public class Dialogue
 {
+    [SerializeField]
+    public string dialogueName = "dialogue";
     [SerializeField]
     public DialogueLine[] firstDialogue;
     [SerializeField]

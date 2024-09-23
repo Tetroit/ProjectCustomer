@@ -54,6 +54,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     }
     void Start()
     {
+        DialogueManager.instance.OnDialogueEnd.AddListener(DialogueEnded);
     }
     void Update()
     {
@@ -75,5 +76,10 @@ public class GlobalData : MonoBehaviour, ISaveData
     public bool GetUIHintStatus(EHintBit bit)
     {
         return (UIHintFlags & (int)bit) != 0;
+    }
+
+    public void DialogueEnded(string name)
+    {
+        Debug.Log(name);
     }
 }

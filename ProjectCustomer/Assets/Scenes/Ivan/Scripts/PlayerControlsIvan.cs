@@ -21,6 +21,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
     public bool isMoving;
     public bool lockControls = false;
     public bool isGrounded;
+    public bool isSafe;
+    public Vector3 lastSafePos;
 
     public float criticalAngle = 30f;
     public float jumpHeight = 5f;
@@ -40,6 +42,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
 
     private void Start()
     {
+        isSafe = true;
+
         if (cameraTransform != null)
         {
             cameraTransform.localRotation = transform.rotation;
@@ -52,6 +56,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
     }
     void Update()
     {
+        if (isSafe)
+            lastSafePos = transform.position;
         if (GameBrain.main.gameState == GameState.GAME)
         {
             LookAround();

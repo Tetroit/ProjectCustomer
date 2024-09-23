@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager instance;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI dialogueText;
 
+    private string dialogueName;
+    bool isSecondDialogue;
     private Queue<DialogueLine> dialogueLines;
 
     [SerializeField] Animator animator;
@@ -16,6 +20,18 @@ public class DialogueManager : MonoBehaviour
 
     public bool isDialogueFinished = false;
 
+    [SerializeField] public UnityEvent<string> OnDialogueEnd;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+        else if (instance != this)
+            Destroy(gameObject);
+    }
     void Start()
     {
         dialogueLines = new Queue<DialogueLine>();
@@ -23,6 +39,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialogueName = dialogue.dialogueName;
+
         isDialogueFinished = false;
         OpenDialogue();
         dialogueLines.Clear();
@@ -33,10 +51,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        isSecondDialogue = false;
     }
 
     public void StartSecondDialogue(Dialogue dialogue)
     {
+        dialogueName = dialogue.dialogueName;
+
         isDialogueFinished = false;
         OpenDialogue();
         dialogueLines.Clear();
@@ -47,6 +68,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        isSecondDialogue = true;
     }
 
     public void DisplayNextSentence()
@@ -55,6 +77,10 @@ public class DialogueManager : MonoBehaviour
         {
             isDialogueFinished = true;
             EndDialogue();
+
+            if (!isSecondDialogue)
+                OnDialogueEnd?.Invoke(dialogueName);
+
             return;
         }
 
