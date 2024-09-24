@@ -6,8 +6,8 @@ public class Wallet : MonoBehaviour
 {
     bool isOpen = false;
     public float rotationFac = 0.01f;
-    public Vector3 offPosition = new Vector3 (-0.5f, -0.5f, 0.5f);
-    public Vector3 onPosition = new Vector3 (0f,0f,2f);
+    public Vector3 offPosition = new Vector3 (-0.25f, -0.25f, 0.25f);
+    public Vector3 onPosition = new Vector3 (0f,0f,1f);
     Vector3 targetPos;
     void Start()
     {

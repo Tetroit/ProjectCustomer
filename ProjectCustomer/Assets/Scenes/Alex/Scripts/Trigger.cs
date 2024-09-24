@@ -15,7 +15,7 @@ public class Trigger : MonoBehaviour
     [SerializeField] string tagFilterName;
 
     [SerializeField] bool destroyOnTrigger;
-    private bool isStarted = false;
+    public bool isStarted = false;
     private bool isStartedInnerMonologue = false;
     private bool isStartedOldHouseInnerDialogue = false;
     private bool isStartedParkInnerMonologue = false;
@@ -45,7 +45,7 @@ public class Trigger : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(tagFilterName) && other.gameObject.CompareTag(tagFilterName))
         {
-            onTriggerEnter.Invoke();
+            onTriggerEnter?.Invoke();
         }
     }
 
@@ -53,36 +53,13 @@ public class Trigger : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(tagFilterName) && other.gameObject.CompareTag(tagFilterName))
         {
-            onTriggerExit.Invoke();
+            onTriggerExit?.Invoke();
         }
     }
 
     public void TriggerDialogue()
     {
-        if(!isStarted)
-        {
-            dialogueTrigger.TriggerDialogue();
-            isStarted = true;
-        }
-    }
-
-    public void StartInnerMonologue()
-    {
-
-        if (!isStartedInnerMonologue)
-        {
-            dialogueTrigger.TriggerDialogue();
-            isStartedInnerMonologue = true;
-        }
-    }
-
-    public void OldHouseInnerMonologue()
-    {
-        if (!isStartedOldHouseInnerDialogue)
-        {
-            dialogueTrigger.TriggerDialogue();
-            isStartedOldHouseInnerDialogue = true;
-        }
+         dialogueTrigger.TriggerDialogue();
     }
 
     private void DestroyTrigger()

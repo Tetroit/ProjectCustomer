@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationFac: 10
-  offPosition: {x: -2, y: -2, z: 0}
-  onPosition: {x: 0, y: 0, z: 2}
+  offPosition: {x: -1, y: -1, z: 0}
+  onPosition: {x: 0, y: 0, z: 1}
 --- !u!1 &1093335230145395175
 GameObject:
   m_ObjectHideFlags: 0
