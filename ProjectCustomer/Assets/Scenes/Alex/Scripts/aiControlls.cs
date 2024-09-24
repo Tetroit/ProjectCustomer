@@ -57,6 +57,11 @@ public class aiControlls : MonoBehaviour
                 break;
         }
 
+        if(GlobalData.instance != null && Vector3.Distance(transform.position, player.position) < 4f && dialogueTrigger.isActive)
+        {
+            GlobalData.instance.UseHint(GlobalData.EUIHint.E);
+        }
+
         if(Vector3.Distance(transform.position, player.position) < 4f && Input.GetKeyDown(KeyCode.E))
         {
             if (dialogueTrigger.isActive && dialogueTrigger != null)
