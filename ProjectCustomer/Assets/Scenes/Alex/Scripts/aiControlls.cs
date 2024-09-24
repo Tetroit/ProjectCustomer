@@ -21,7 +21,7 @@ public class aiControlls : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public DialogueManager dialogueManager;
-    public DialogueTrigger DialogueTrigger;
+    public DialogueTrigger dialogueTrigger;
 
 
     public Vector3[] locations;
@@ -127,9 +127,9 @@ public class aiControlls : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 
-        if(!isStarted)
+        if(!isStarted && dialogueTrigger != null)
         {
-            DialogueTrigger.TriggerDialogue();
+            dialogueTrigger.TriggerDialogue();
             isStarted = true;
         }
     }
