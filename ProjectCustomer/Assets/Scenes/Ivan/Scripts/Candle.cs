@@ -17,7 +17,7 @@ public class Candle : MonoBehaviour
     private void Update()
     {
         if (Application.isPlaying)
-            light.intensity = Random.Range(0.8f, 1.2f);
+            light.intensity = Random.Range(8f, 12f);
     }
     private void OnValidate()
     {

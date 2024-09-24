@@ -25,7 +25,7 @@ void ExtraLight_float(float3 WorldPos, float3 WorldNormal, out float3 Color)
     for (int i = 0; i < lightCount; i++)
     {
         Light light = GetAdditionalLight(i, WorldPos);
-        float3 color = dot(light.direction, WorldNormal);
+        float3 color = dot(light.direction, WorldNormal) * light.distanceAttenuation;
         color = clamp(color, 0, 1);
         color *= light.color;
         Color += color;
