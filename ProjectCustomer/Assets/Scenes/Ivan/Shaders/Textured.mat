@@ -131,8 +131,8 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _UseDiffuseTexture: 1
-    - _UseNormalTexture: 1
+    - _UseDiffuseTexture: 0
+    - _UseNormalTexture: 0
     - _UseTexture: 1
     - _WorkflowMode: 1
     - _ZWrite: 1

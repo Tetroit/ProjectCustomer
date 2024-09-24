@@ -21,10 +21,16 @@ public class GlobalData : MonoBehaviour, ISaveData
         START = 0,
         START_MONOLOGUE = 1,
         CHURCH = 10,
+        CHURCH_CANDLE_LIT = 11,
+        CHURCH_DIALOGUE = 12,
         MARKET = 20,
         CAFE = 30,
+        CAFE_WALLET_PULLED = 31,
+        CAFE_FINISHED = 32,
         OLD_HOME = 40,
+        OLD_HOME_DIALOGUE = 41,
         NURSERY = 50,
+        END = 60
     }
 
     public enum EHintBit
@@ -36,6 +42,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     public void UpdateStory(MainScriptState newState)
     {
         OnStoryChange?.Invoke(newState);
+        storyProgress = newState;
     }
     public void LoadData(GameData data)
     {
@@ -87,8 +94,23 @@ public class GlobalData : MonoBehaviour, ISaveData
 
         switch(name)
         {
-            case "OldHouseDialogue":
+            case "InnerDialogue":
+                UpdateStory(MainScriptState.START_MONOLOGUE);
+                break;
+            case "CandleDialogue":
+                UpdateStory(MainScriptState.CHURCH_DIALOGUE);
+                break;
+            case "CafeDirectionsDialogue":
+                UpdateStory(MainScriptState.MARKET);
+                break;
+            case "BaristaDialogue":
+                UpdateStory(MainScriptState.CAFE);
+                break;
+            case "ApproachOldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME);
+                break;
+            case "OldHouseDialogue":
+                UpdateStory(MainScriptState.OLD_HOME_DIALOGUE);
                 TeleportPlayer(teleportLocationPark);
                 break;
             case "NurseDialogue":
