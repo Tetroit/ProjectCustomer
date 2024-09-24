@@ -42,6 +42,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     public void UpdateStory(MainScriptState newState)
     {
         OnStoryChange?.Invoke(newState);
+        storyProgress = newState;
     }
     public void LoadData(GameData data)
     {
