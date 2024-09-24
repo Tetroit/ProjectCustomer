@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine.Playables;
+using UnityEngine.Events;
 
 public enum EInputDevice
 {
@@ -43,6 +44,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
 
     public Transform candlePlayerPos;
     public GameObject candle;
+
+    public UnityEvent OnCandleAnimationEnd;
 
     private void Start()
     {
@@ -288,6 +291,7 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         rb.isKinematic = false;
         lockControls = false;
         GameBrain.main.ChangeGameState(GameState.GAME);
+        OnCandleAnimationEnd?.Invoke();
         yield return null;
     }
 
