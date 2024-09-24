@@ -8,6 +8,7 @@ public class GlobalData : MonoBehaviour, ISaveData
 {
     [SerializeField] private Transform teleportLocationPark;
     [SerializeField] private Transform teleportLocationNursery;
+    public CameraFade cameraFade;
     public static GlobalData instance;
     public bool isWalletUnlocked = false;
     private int UIHintFlags = 3;
@@ -111,11 +112,15 @@ public class GlobalData : MonoBehaviour, ISaveData
                 break;
             case "OldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME_DIALOGUE);
+                cameraFade.FadeIn();
                 TeleportPlayer(teleportLocationPark);
+                cameraFade.FadeOut();
                 break;
             case "NurseDialogue":
                 UpdateStory(MainScriptState.NURSERY);
+                cameraFade.FadeIn();
                 TeleportPlayer(teleportLocationNursery);
+                cameraFade.FadeOut();
                 break;
         }
     }
