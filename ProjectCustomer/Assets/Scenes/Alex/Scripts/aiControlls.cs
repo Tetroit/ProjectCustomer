@@ -59,7 +59,8 @@ public class aiControlls : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.position) < 4f && Input.GetKeyDown(KeyCode.E))
         {
-            currentState = EState.Talk;
+            if (dialogueTrigger.isActive && dialogueTrigger != null)
+                currentState = EState.Talk;
         }
 
         if(Vector3.Distance(transform.position, player.position) > 4f && currentState != EState.Idle && currentState != EState.Walk && dialogueManager.isDialogueFinished)
@@ -127,7 +128,7 @@ public class aiControlls : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(aiToPlayer);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 
-        if(!isStarted && dialogueTrigger != null)
+        if(!isStarted && dialogueTrigger != null && dialogueTrigger.isActive)
         {
             dialogueTrigger.TriggerDialogue();
             isStarted = true;
