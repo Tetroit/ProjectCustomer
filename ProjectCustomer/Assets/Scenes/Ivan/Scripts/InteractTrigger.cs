@@ -10,6 +10,7 @@ public class InteractTrigger : MonoBehaviour
 
     public UnityEvent OnInteract;
     public Transform player;
+    public GlobalData.EUIHint UIHint;
     public Bounds interactableArea = new Bounds(new Vector3(0,0,0), new Vector3(1,1,1));
     Vector3 boundsOffset;
     public KeyCode interactKey = KeyCode.E;
@@ -40,7 +41,7 @@ public class InteractTrigger : MonoBehaviour
         {
             if (active == null)
             {
-                    SetActive();
+                SetActive();
             }
             else
             {
@@ -63,6 +64,9 @@ public class InteractTrigger : MonoBehaviour
         {
             OnInteract?.Invoke();
         }
+
+        if (active != null)
+            GlobalData.instance.UseHint(UIHint);
     }
 
     public void YOUAREGAY()
@@ -71,17 +75,12 @@ public class InteractTrigger : MonoBehaviour
     }
     void SetActive()
     {
-        if (active == null)
-        {
-            active = this;
-            isInteractable = true;
-        }
-        else
+        if (active != null)
         {
             active.isInteractable = false;
-            active = this;
-            isInteractable = true;
         }
+        active = this;
+        isInteractable = true;
     }
     static void ClearActive()
     {

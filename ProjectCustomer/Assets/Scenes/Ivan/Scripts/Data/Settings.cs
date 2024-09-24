@@ -143,7 +143,10 @@ public class Settings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GlobalData.instance!= null)
+        {
+            GlobalData.instance.UseHint(GlobalData.EUIHint.TAB);
+        }
     }
     void ChangeMasterVolume(float value)
     {

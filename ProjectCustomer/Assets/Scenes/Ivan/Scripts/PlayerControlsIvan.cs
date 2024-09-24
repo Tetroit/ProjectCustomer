@@ -95,8 +95,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
 
     private void LookAround()
     {
-        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity * Time.deltaTime;
-        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity * Time.deltaTime;
+        turnTarget.x += Input.GetAxis("Mouse X") * Settings.main.mouseSensitivity;
+        turnTarget.y += Input.GetAxis("Mouse Y") * Settings.main.mouseSensitivity;
 
         turnTarget.y = Mathf.Clamp(turnTarget.y, minAngle, maxAngle);
         turn = Vector2.Lerp(turnTarget, turn, cameraSmoothness);
@@ -157,8 +157,6 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         if (moveDirection.magnitude > 0.1f)
         {
             isMoving = true;
-            if (GlobalData.instance.GetUIHintStatus(GlobalData.EHintBit.CONTROLS))
-                GlobalData.instance.SetUIHintVisibility((int)GlobalData.EHintBit.CONTROLS, false);
         }
         else isMoving = false;
 

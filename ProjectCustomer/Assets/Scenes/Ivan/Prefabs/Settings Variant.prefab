@@ -803,6 +803,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -92
       objectReference: {fileID: 0}
+    - target: {fileID: 1209942021217545359, guid: eea45ec4c4a407842af5cbc8afed1e77,
+        type: 3}
+      propertyPath: m_Value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209942021217545359, guid: eea45ec4c4a407842af5cbc8afed1e77,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1209942021217545359, guid: eea45ec4c4a407842af5cbc8afed1e77,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1354629990663707733, guid: eea45ec4c4a407842af5cbc8afed1e77,
         type: 3}
       propertyPath: m_Color.a

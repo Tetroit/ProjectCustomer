@@ -12,12 +12,10 @@ public class GlobalData : MonoBehaviour, ISaveData
     public CameraFade cameraFade;
     public static GlobalData instance;
     public bool isWalletUnlocked = false;
-    private int UIHintFlags = 3;
     public MainScriptState storyProgress;
 
+    public List<UIHint> hints;
 
-
-    public event Action OnUIHintFlagsChanged;
     public UnityEvent<MainScriptState> OnStoryChange;
     public enum MainScriptState
     {
@@ -37,10 +35,13 @@ public class GlobalData : MonoBehaviour, ISaveData
         END = 70
     }
 
-    public enum EHintBit
+    public enum EUIHint
     {
-        CONTROLS = 0x1,
-        WALLET = 0x2,
+        NULL = 0,
+        E = 1,
+        R = 2,
+        F = 3,
+        TAB = 4,
     }
 
     public void UpdateStory(MainScriptState newState)
@@ -51,12 +52,10 @@ public class GlobalData : MonoBehaviour, ISaveData
     public void LoadData(GameData data)
     {
         storyProgress = (MainScriptState)data.storyProgress;
-        UIHintFlags = data.UIflags;
     }
     public void SaveData(ref GameData data)
     {
         data.storyProgress = (int)storyProgress;
-        data.UIflags = UIHintFlags;
     }
     private void Awake()
     {
@@ -69,28 +68,49 @@ public class GlobalData : MonoBehaviour, ISaveData
     {
         if (DialogueManager.instance != null)       
             DialogueManager.instance.OnDialogueEnd.AddListener(DialogueEnded);
+        foreach (UIHint hint in hints)
+            hint.Hide();
 
     }
     void Update()
     {
+        if (isWalletUnlocked)
+            UseHint(EUIHint.R);
+        UpdateHints();
     }
 
+    public void UseHint(EUIHint hint)
+    {
+        if (hint == EUIHint.NULL) return;
+        foreach (UIHint UIHint in hints)
+        {
+            if (UIHint.hint == hint) UIHint.references++;
+        }
+    }
+    void UpdateHints()
+    {
+        foreach (UIHint hint in hints)
+        {
+            if (hint.references > 0)
+            {
+                if (hint.isHidden)
+                    hint.Show();
+            }
+            else
+            {
+                if (!hint.isHidden)
+                    hint.Hide();
+            }
+
+            hint.references = 0;
+        }
+    }
     public static void UnlockWallet()
     {
         instance.isWalletUnlocked = true;
     }
     public void SetUIHintVisibility(int hintFlags, bool visibility) 
     {
-        if (visibility)
-            UIHintFlags |= hintFlags;
-        else
-            UIHintFlags &= ~hintFlags;
-
-        OnUIHintFlagsChanged?.Invoke();
-    }
-    public bool GetUIHintStatus(EHintBit bit)
-    {
-        return (UIHintFlags & (int)bit) != 0;
     }
 
     public void DialogueEnded(string name)
