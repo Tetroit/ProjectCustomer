@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
@@ -13,6 +14,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     public bool isWalletUnlocked = false;
     private int UIHintFlags = 3;
     public MainScriptState storyProgress;
+
 
 
     public event Action OnUIHintFlagsChanged;
@@ -30,8 +32,9 @@ public class GlobalData : MonoBehaviour, ISaveData
         CAFE_FINISHED = 32,
         OLD_HOME = 40,
         OLD_HOME_DIALOGUE = 41,
-        NURSERY = 50,
-        END = 60
+        PARK = 50,
+        NURSERY = 60,
+        END = 70
     }
 
     public enum EHintBit
@@ -66,6 +69,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     {
         if (DialogueManager.instance != null)       
             DialogueManager.instance.OnDialogueEnd.AddListener(DialogueEnded);
+
     }
     void Update()
     {
@@ -97,25 +101,40 @@ public class GlobalData : MonoBehaviour, ISaveData
         {
             case "InnerDialogue":
                 UpdateStory(MainScriptState.START_MONOLOGUE);
+                
                 break;
+
+            case "EnterChurchDialogue":
+                UpdateStory(MainScriptState.CHURCH);
+                break;
+
             case "CandleDialogue":
                 UpdateStory(MainScriptState.CHURCH_DIALOGUE);
                 break;
+
             case "CafeDirectionsDialogue":
                 UpdateStory(MainScriptState.MARKET);
                 break;
+
             case "BaristaDialogue":
                 UpdateStory(MainScriptState.CAFE);
                 break;
+
             case "ApproachOldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME);
                 break;
+
             case "OldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME_DIALOGUE);
                 cameraFade.FadeIn();
                 TeleportPlayer(teleportLocationPark);
                 cameraFade.FadeOut();
                 break;
+
+            case "ParkDialogue":
+                UpdateStory(MainScriptState.PARK);
+                break;
+
             case "NurseDialogue":
                 UpdateStory(MainScriptState.NURSERY);
                 cameraFade.FadeIn();

@@ -6,21 +6,42 @@ public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField]
     public Dialogue dialogue;
-
+    public bool isActive = true;
     private bool hasPlayedFirstDialogue = false;
+
+    public GlobalData.MainScriptState activateState;
+
+    public void Start()
+    {
+        if (GlobalData.instance != null)
+        {
+            GlobalData.instance.OnStoryChange.AddListener(ActivateDialogue);
+        }
+    }
     public void TriggerDialogue()
     {
-        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
-
-        if(!hasPlayedFirstDialogue)
+        if (isActive)
         {
-            dialogueManager.StartDialogue(dialogue);
-            hasPlayedFirstDialogue = true;
+            DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
 
+            if (dialogueManager != null)
+            {
+                if (!hasPlayedFirstDialogue)
+                {
+                    dialogueManager.StartDialogue(dialogue);
+                    hasPlayedFirstDialogue = true;
+
+                }
+                else
+                {
+                    dialogueManager.StartSecondDialogue(dialogue);
+                }
+            }
         }
-        else
-        {
-            dialogueManager.StartSecondDialogue(dialogue);
-        }
+    }
+
+    public void ActivateDialogue(GlobalData.MainScriptState state)
+    {
+        isActive = (state == activateState);
     }
 }

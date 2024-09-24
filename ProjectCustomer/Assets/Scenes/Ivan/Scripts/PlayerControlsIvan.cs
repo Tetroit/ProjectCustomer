@@ -291,12 +291,15 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         rb.isKinematic = false;
         lockControls = false;
         GameBrain.main.ChangeGameState(GameState.GAME);
+        GlobalData.instance.UpdateStory(GlobalData.MainScriptState.CHURCH_CANDLE_LIT);
+
         OnCandleAnimationEnd?.Invoke();
         yield return null;
     }
 
     public void PlayCandleAnimation()
     {
-        StartCoroutine(CandleAnimation());
+        if (GlobalData.instance.storyProgress == GlobalData.MainScriptState.CHURCH)
+            StartCoroutine(CandleAnimation());
     }
 }
