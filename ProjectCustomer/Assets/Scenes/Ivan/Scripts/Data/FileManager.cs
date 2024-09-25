@@ -24,7 +24,6 @@ public static class FileManager
     }
     public static void WriteToFile<T>(string path, T data)
     {
-        string dir = Application.persistentDataPath;
         string fullPath = Path.Combine(Application.persistentDataPath, path);
 
         Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
@@ -38,5 +37,10 @@ public static class FileManager
                 writer.Write(json);
             }
         }
+    }
+    public static void DeleteFile(string path)
+    {
+        string fullPath = Path.Combine(Application.persistentDataPath, path);
+        File.Delete(fullPath);
     }
 }

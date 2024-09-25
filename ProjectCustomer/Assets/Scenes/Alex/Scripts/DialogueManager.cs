@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (instance == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             instance = this;
         }
         else if (instance != this)
@@ -35,6 +35,8 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialogueLines = new Queue<DialogueLine>();
+        if (GlobalData.instance != null)
+            OnDialogueEnd.AddListener(GlobalData.instance.DialogueEnded);
     }
 
     public void StartDialogue(Dialogue dialogue)

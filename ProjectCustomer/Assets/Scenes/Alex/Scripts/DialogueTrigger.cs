@@ -16,6 +16,7 @@ public class DialogueTrigger : MonoBehaviour
         if (GlobalData.instance != null)
         {
             GlobalData.instance.OnStoryChange.AddListener(ActivateDialogue);
+            ActivateDialogue(GlobalData.instance.storyProgress);
         }
     }
     public void TriggerDialogue()
