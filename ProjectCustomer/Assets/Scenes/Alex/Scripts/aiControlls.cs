@@ -80,8 +80,6 @@ public class aiControlls : MonoBehaviour
             {
                 ResumeIdle();
             }
-
-            dialogueManager.isDialogueFinished = false;
         }
     }
 
