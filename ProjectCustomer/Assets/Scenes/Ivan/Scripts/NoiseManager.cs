@@ -57,17 +57,17 @@ public class NoiseManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(this);
-        }
-
         if (Application.isPlaying)
         {
+
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(this);
+            }
             _noise.SetActive(true);
         }
     }

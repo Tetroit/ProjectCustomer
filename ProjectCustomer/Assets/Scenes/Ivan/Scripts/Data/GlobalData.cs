@@ -12,6 +12,7 @@ public class GlobalData : MonoBehaviour, ISaveData
     public CameraFade cameraFade;
     public static GlobalData instance;
     public bool isWalletUnlocked = false;
+    public bool isCutscenePlayed = false;
     public MainScriptState storyProgress;
 
     public List<UIHint> hints;
@@ -52,15 +53,21 @@ public class GlobalData : MonoBehaviour, ISaveData
     public void LoadData(GameData data)
     {
         UpdateStory((MainScriptState)data.storyProgress);
+        isCutscenePlayed = data.isCutscenePlayed;
+        isWalletUnlocked = data.isWalletUnlocked;
     }
     public void SaveData(ref GameData data)
     {
         data.storyProgress = (int)storyProgress;
+        data.isCutscenePlayed = isCutscenePlayed;
+        data.isWalletUnlocked = isWalletUnlocked;
     }
 
     public void ResetData()
     {
         storyProgress = MainScriptState.START;
+        isCutscenePlayed = false;
+        isWalletUnlocked = false;
     }
 
     private void Awake()
@@ -160,9 +167,7 @@ public class GlobalData : MonoBehaviour, ISaveData
 
             case "OldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME_DIALOGUE);
-                cameraFade.FadeIn();
-                TeleportPlayer(teleportLocationPark);
-                cameraFade.FadeOut();
+                cameraFade.StartTransition(delegate { TeleportPlayer(teleportLocationPark); });
                 break;
 
             case "ParkDialogue":
@@ -171,9 +176,7 @@ public class GlobalData : MonoBehaviour, ISaveData
 
             case "NurseDialogue":
                 UpdateStory(MainScriptState.NURSERY);
-                cameraFade.FadeIn();
-                TeleportPlayer(teleportLocationNursery);
-                cameraFade.FadeOut();
+                cameraFade.StartTransition(delegate { TeleportPlayer(teleportLocationNursery); });
                 break;
         }
     }

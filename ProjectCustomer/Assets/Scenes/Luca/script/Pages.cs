@@ -7,10 +7,26 @@ public class ImageFadeIn : MonoBehaviour
     public Image[] images;
     public float fadeDuration = 1.0f;
     public float delayBetweenImages = 0.5f;
+    bool cutsceneEnded = false;
+    public GameObject hint;
 
     void Start()
     {
+        if (hint != null)
+            hint.SetActive(false);
         StartCoroutine(FadeInImages());
+    }
+
+    private void Update()
+    {
+        if (cutsceneEnded)
+        {
+            if (hint != null)
+                hint.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+                GlobalData.instance.isCutscenePlayed = true;
+                GameBrain.main.StartGame();
+        }
     }
 
     IEnumerator FadeInImages()
@@ -20,6 +36,7 @@ public class ImageFadeIn : MonoBehaviour
             yield return StartCoroutine(FadeIn(image));
             yield return new WaitForSeconds(delayBetweenImages);
         }
+        cutsceneEnded = true;
     }
 
     IEnumerator FadeIn(Image image)
@@ -38,5 +55,10 @@ public class ImageFadeIn : MonoBehaviour
         }
 
         image.color = new Color(originalColor.r, originalColor.g, originalColor.b, 1);
+    }
+
+    public void CutsceneEnd()
+    {
+
     }
 }

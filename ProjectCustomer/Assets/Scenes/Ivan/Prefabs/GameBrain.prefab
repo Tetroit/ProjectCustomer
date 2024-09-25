@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 4911313575486787987}
   - component: {fileID: 324816528171814007}
   - component: {fileID: 4802874214013122921}
+  - component: {fileID: 4734608839343910662}
+  - component: {fileID: 4868309906012779008}
+  - component: {fileID: 582578053525260604}
   m_Layer: 0
   m_Name: GameBrain
   m_TagString: Untagged
@@ -52,12 +55,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroungMusicPlayer: {fileID: 4911313575486787987}
-  playlist:
-  - {fileID: 8300000, guid: 629d81728ba3443498971f2197d6e67d, type: 3}
-  - {fileID: 8300000, guid: 36ccb3183dcfc2d489f5f3b64d863b5a, type: 3}
+  playlist: []
   settingsWindow: {fileID: 6071167700259078568}
   startState: 0
-  gameScene: amogus
+  gameScene: demo map
+  startCutscene: intro
+  menuScene: TrueMenu
+  titlesScene: Titles
 --- !u!114 &5829192437055639516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +91,7 @@ MonoBehaviour:
   _noise: {fileID: -3643660610922040406, guid: e5e160b8c6762ac44be596f83e5a9b09, type: 2}
   _noiseMaterial: {fileID: 2100000, guid: e51f86ca0b5ec0e40b43af0483977a87, type: 2}
   showInEditor: 0
-  fac: 0
+  fac: 1
 --- !u!82 &4911313575486787987
 AudioSource:
   m_ObjectHideFlags: 0
@@ -199,8 +203,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationPark: {fileID: 0}
   teleportLocationNursery: {fileID: 0}
-  cameraFade: {fileID: 0}
+  cameraFade: {fileID: 582578053525260604}
   isWalletUnlocked: 0
+  isCutscenePlayed: 0
   storyProgress: 0
   hints: []
   OnStoryChange:
@@ -222,6 +227,113 @@ MonoBehaviour:
   gameData:
     playerPos: {x: 0, y: 0, z: 0}
     storyProgress: 0
+    isWalletUnlocked: 0
+    isCutscenePlayed: 0
+  newSave: 0
+--- !u!114 &4734608839343910662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388811012598548125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 23
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: a162705906b7f034496752f4ea5122f3, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!114 &4868309906012779008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388811012598548125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cedf3204d17765479476939f7ad9434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: e55efc09895866e4cac689f0984c269f, type: 2}
+  - {fileID: 2100000, guid: 01b859e448aff534aab0aac5cbf0a230, type: 2}
+  - {fileID: 2100000, guid: 3b16f97805ee41c4c9b0759783e5a678, type: 2}
+  - {fileID: 2100000, guid: d5b4342b4bb63094e9a6c595babc6c80, type: 2}
+  - {fileID: 2100000, guid: 8808f762973c32840b98f32ceb3122f5, type: 2}
+  - {fileID: 2100000, guid: b386dde047a37a346856c94eab24add8, type: 2}
+  - {fileID: 2100000, guid: a5ed93f60bb7c864f9d6744595b78ad8, type: 2}
+  - {fileID: 2100000, guid: dad25213a0334634795cc2ecd14a6fe6, type: 2}
+  - {fileID: 2100000, guid: 4939078057d2b934f9cf0e8298d2e3cf, type: 2}
+  - {fileID: 2100000, guid: b55f7827e4ef62946a4cef4d8c4dbe00, type: 2}
+  - {fileID: 2100000, guid: 9d07e15f17e3e2d42b5f948b9599da6e, type: 2}
+--- !u!114 &582578053525260604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388811012598548125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac50c83da49262a46a918f13da4b49e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 32
+  speedScale: 0.5
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  Curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.5
+      inSlope: -1.5
+      outSlope: -1.5
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  startFadedOut: 0
 --- !u!1 &7516773513137536773
 GameObject:
   m_ObjectHideFlags: 0

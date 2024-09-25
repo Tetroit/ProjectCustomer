@@ -9,12 +9,16 @@ public interface ISaveData
 
     void ResetData();
 }
-
 [System.Serializable]
+
 public class GameData
 {
     [SerializeField]
     public Vector3 playerPos = Vector3.zero;
     [SerializeField]
     public int storyProgress = 0;
+    [SerializeField]
+    public bool isWalletUnlocked = false;
+    [SerializeField]
+    public bool isCutscenePlayed = false;
 }

@@ -28,6 +28,9 @@ public class GameBrain : MonoBehaviour
     public GameState gameState { get; private set;}
     protected GameState _previousState = GameState.GAME;
     public string gameScene = "amogus";
+    public string startCutscene = "intro";
+    public string menuScene = "TrueMenu";
+    public string titlesScene = "Titles";
 
     private void Awake()
     {
@@ -157,6 +160,12 @@ public class GameBrain : MonoBehaviour
     public void ReturnToPreviousState()
     {
         ChangeGameState(_previousState);
+    }
+    public void StartCutscene()
+    {
+        CloseSettings();
+        SceneManager.LoadScene(startCutscene);
+        ChangeGameState(GameState.CUTSCENE);
     }
     public void StartGame()
     {
