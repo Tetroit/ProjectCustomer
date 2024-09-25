@@ -51,12 +51,18 @@ public class GlobalData : MonoBehaviour, ISaveData
     }
     public void LoadData(GameData data)
     {
-        storyProgress = (MainScriptState)data.storyProgress;
+        UpdateStory((MainScriptState)data.storyProgress);
     }
     public void SaveData(ref GameData data)
     {
         data.storyProgress = (int)storyProgress;
     }
+
+    public void ResetData()
+    {
+        storyProgress = MainScriptState.START;
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -66,8 +72,6 @@ public class GlobalData : MonoBehaviour, ISaveData
     }
     void Start()
     {
-        if (DialogueManager.instance != null)       
-            DialogueManager.instance.OnDialogueEnd.AddListener(DialogueEnded);
         foreach (UIHint hint in hints)
             hint.Hide();
 

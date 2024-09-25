@@ -12,7 +12,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager instance;
     public List<ISaveData> listeners;
     public GameData gameData = new GameData();
-    bool newSave = false;
+    public bool newSave = false;
 
     private void Awake()
     {
@@ -40,14 +40,17 @@ public class SaveManager : MonoBehaviour
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
     {
-        FindListeners();
-        if (!newSave) LoadData();
+        if (GameBrain.main == null || scene.name == GameBrain.main.gameScene)
+        {
+            if (!newSave) LoadData();
+        }
     }
     private void OnSceneUnload(Scene scene)
     {
     }
     public void LoadData()
     {
+        FindListeners();
         if (listeners != null)
         {
             foreach (var listener in listeners)
@@ -58,11 +61,28 @@ public class SaveManager : MonoBehaviour
     }
     public void SaveData()
     {
+        FindListeners();
         if (listeners != null)
         {
             foreach (var listener in listeners)
             {
                 listener.SaveData(ref gameData);
+            }
+        }
+    }
+    public void ResetData()
+    {
+        FindListeners();
+        FileManager.DeleteFile(fileName);
+        gameData = new GameData();
+        newSave = true;
+        GameBrain.main.ExitToMenu(false);
+
+        if (listeners != null)
+        {
+            foreach (var listener in listeners)
+            {
+                listener.ResetData();
             }
         }
     }
@@ -86,6 +106,9 @@ public class SaveManager : MonoBehaviour
 
     public void FindListeners()
     {
+        
         listeners = FindObjectsOfType<MonoBehaviour>().OfType<ISaveData>().ToList();
+        for (int i = 0; i < listeners.Count; i++)
+            Debug.Log("listeners found: " + listeners[i].GetType().Name);
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1674261018718108522}
   - component: {fileID: 4911313575486787987}
   - component: {fileID: 324816528171814007}
+  - component: {fileID: 4802874214013122921}
   m_Layer: 0
   m_Name: GameBrain
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 36ccb3183dcfc2d489f5f3b64d863b5a, type: 3}
   settingsWindow: {fileID: 6071167700259078568}
   startState: 0
+  gameScene: amogus
 --- !u!114 &5829192437055639516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,11 +197,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccaa0d31de0f9a843913ebc265dab4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportLocationPark: {fileID: 0}
+  teleportLocationNursery: {fileID: 0}
+  cameraFade: {fileID: 0}
   isWalletUnlocked: 0
-  UIHintFlags: 3
-  OnUIHintFlagsChanged:
+  storyProgress: 0
+  hints: []
+  OnStoryChange:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4802874214013122921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388811012598548125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334aeaa87b4b5c24cb1ac01b1d34c4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: amogus.json
+  gameData:
+    playerPos: {x: 0, y: 0, z: 0}
+    storyProgress: 0
 --- !u!1 &7516773513137536773
 GameObject:
   m_ObjectHideFlags: 0

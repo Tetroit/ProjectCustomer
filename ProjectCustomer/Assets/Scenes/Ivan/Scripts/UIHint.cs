@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIHint : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class UIHint : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        Debug.Log("uihint destroyed");
+        if (GlobalData.instance != null && GlobalData.instance.hints.Contains(this))
+            GlobalData.instance.hints.Remove(this);
+    }
     // Update is called once per frame
     void Update()
     {

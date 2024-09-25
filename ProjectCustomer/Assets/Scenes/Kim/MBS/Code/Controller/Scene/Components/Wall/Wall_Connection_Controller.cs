@@ -37,24 +37,30 @@ namespace MBS.Controller.Scene
                 }
                 else
                 {
-                    frontSideConnectionNode.Add( mbsWallModule );
-                    frontSideConnectionNode.AddRange( frontList );
-                    RecalculateConnectionsNode( mbsWallModule.FrontEndPointWorldSpace,
-                                                mbsWallModule.frontEndPointConstructorSpace,
-                                                frontSideConnectionNode,
-                                                mbsWallModule.connectedToFront, doUpdateMesh );
+                    if (mbsWallModule != null && frontSideConnectionNode != null)
+                    {
+                        frontSideConnectionNode.Add(mbsWallModule);
+                        frontSideConnectionNode.AddRange(frontList);
+                        //RecalculateConnectionsNode(mbsWallModule.FrontEndPointWorldSpace,
+                        //                            mbsWallModule.frontEndPointConstructorSpace,
+                        //                            frontSideConnectionNode,
+                        //                            mbsWallModule.connectedToFront, doUpdateMesh);
+                    }
                 }
             }
 
 
             if ( mbsWallModule.connectedToRear != null )
             {
-                rearSideConnectionNode.Add( mbsWallModule );
-                rearSideConnectionNode.AddRange( rearList );
-                RecalculateConnectionsNode( mbsWallModule.RearEndPointWorldSpace,
-                                            mbsWallModule.rearEndPointConstructorSpace,
-                                            rearSideConnectionNode,
-                                            mbsWallModule.connectedToRear, doUpdateMesh );
+                if (mbsWallModule != null && frontSideConnectionNode != null)
+                {
+                    rearSideConnectionNode.Add(mbsWallModule);
+                    rearSideConnectionNode.AddRange(rearList);
+                    RecalculateConnectionsNode(mbsWallModule.RearEndPointWorldSpace,
+                                                mbsWallModule.rearEndPointConstructorSpace,
+                                                rearSideConnectionNode,
+                                                mbsWallModule.connectedToRear, doUpdateMesh);
+                }
             }
             else
             {
@@ -66,12 +72,15 @@ namespace MBS.Controller.Scene
                 }
                 else
                 {
-                    rearSideConnectionNode.Add( mbsWallModule );
-                    rearSideConnectionNode.AddRange( rearList );
-                    RecalculateConnectionsNode( mbsWallModule.RearEndPointWorldSpace,
-                                                mbsWallModule.rearEndPointConstructorSpace,
-                                                rearSideConnectionNode,
-                                                mbsWallModule.connectedToRear, doUpdateMesh );
+                    if (mbsWallModule != null && frontSideConnectionNode != null)
+                    {
+                        rearSideConnectionNode.Add(mbsWallModule);
+                        rearSideConnectionNode.AddRange(rearList);
+                        //RecalculateConnectionsNode(mbsWallModule.RearEndPointWorldSpace,
+                        //                            mbsWallModule.rearEndPointConstructorSpace,
+                        //                            rearSideConnectionNode,
+                        //                            mbsWallModule.connectedToRear, doUpdateMesh);
+                    }
                 }
             }
         }

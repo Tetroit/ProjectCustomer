@@ -17,6 +17,7 @@ public class SettingsLayout : MonoBehaviour
     public Button exitToDesktop;
     public Button save;
     public Button load;
+    public Button resetData;
 
     public Toggle disableFlashingColors;
     public Toggle fullscreen;

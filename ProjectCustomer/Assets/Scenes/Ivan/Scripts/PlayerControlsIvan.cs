@@ -232,6 +232,11 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         gameData.playerPos = transform.position; 
     }
 
+    public void ResetData()
+    {
+        
+    }
+
 
     public IEnumerator CandleAnimation()
     {
