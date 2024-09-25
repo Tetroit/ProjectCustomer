@@ -22,8 +22,6 @@ void MainLight_float(float3 WorldPos, out float3 Direction, out float3 Color, ou
     Color = mainLight.color;
     Attenuation = mainLight.distanceAttenuation;
     ShadowSamplingData shadowSampler = GetMainLightShadowSamplingData();
-    float shadowStrength = GetMainLightShadowStrength();
-    ShadowAttenuation = shadowStrength;
     ShadowAttenuation = MainLightRealtimeShadow(shadowPos);
 #endif
 }
