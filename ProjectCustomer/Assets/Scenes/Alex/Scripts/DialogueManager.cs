@@ -77,13 +77,11 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        Debug.Log("lines left: " + dialogueLines.Count);
         if(dialogueLines.Count == 0)
         {
             isDialogueFinished = true;
             EndDialogue();
-
-            if (!isSecondDialogue)
-                OnDialogueEnd?.Invoke(dialogueName);
 
             return;
         }
@@ -107,6 +105,8 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         CloseDialogue();
+        if (!isSecondDialogue)
+            OnDialogueEnd?.Invoke(dialogueName);
     }
 
     public void OpenDialogue()
