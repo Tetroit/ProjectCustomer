@@ -12,7 +12,9 @@ Material:
     type: 3}
   m_Parent: {fileID: 2100000, guid: b55f7827e4ef62946a4cef4d8c4dbe00, type: 2}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _MAIN_LIGHT_SHADOWS
+  - _MAIN_LIGHT_SHADOWS_CASCADE
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
