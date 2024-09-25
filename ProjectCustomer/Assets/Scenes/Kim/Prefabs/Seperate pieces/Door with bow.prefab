@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 9014244985168858080}
   - component: {fileID: 8317298858539880574}
   - component: {fileID: 568649075527662917}
+  - component: {fileID: 8243533409969719366}
   m_Layer: 0
   m_Name: Bow_low (1)
   m_TagString: Untagged
@@ -201,6 +202,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8243533409969719366
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663791516534061309}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4469716544331400057, guid: a661e6c029ea47b49b7257c9a2985ca2, type: 3}
 --- !u!1 &5805012260954241642
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +235,7 @@ GameObject:
   - component: {fileID: 346301946895736320}
   - component: {fileID: 2144675980775782153}
   - component: {fileID: 9130276154181361409}
+  - component: {fileID: 7258112478373995310}
   m_Layer: 0
   m_Name: Door 2_low (1)
   m_TagString: Untagged
@@ -284,6 +308,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7258112478373995310
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5805012260954241642}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5459545243731602087, guid: a661e6c029ea47b49b7257c9a2985ca2, type: 3}
 --- !u!1 &6272939905500633215
 GameObject:
   m_ObjectHideFlags: 0

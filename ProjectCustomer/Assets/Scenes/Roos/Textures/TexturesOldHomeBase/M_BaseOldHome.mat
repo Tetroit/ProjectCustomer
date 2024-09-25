@@ -116,7 +116,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Distance: 7.82
+    - _Distance: 5
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -127,7 +127,7 @@ Material:
     - _MAIN_LIGHT_SHADOWS_CASCADE: 1
     - _Metallic: 0
     - _NoiseScale: 60.4
-    - _Noisiness: 0.82
+    - _Noisiness: 0.7
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
