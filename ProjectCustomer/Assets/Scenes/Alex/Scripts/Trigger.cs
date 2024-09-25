@@ -9,6 +9,7 @@ public class Trigger : MonoBehaviour
 {
     [SerializeField] UnityEvent onTriggerEnter;
     [SerializeField] UnityEvent onTriggerExit;
+    [SerializeField] Animator animator;
     public DialogueManager dialogueManager;
     public DialogueTrigger dialogueTrigger;
 
@@ -81,11 +82,11 @@ public class Trigger : MonoBehaviour
 
     public void OpenDoor()
     {
-        oldHouseDoor.SetActive(false);
+        animator.SetBool("isOpen", true);
     }
 
     public void CloseDoor()
     {
-        oldHouseDoor.SetActive(true);
+        animator.SetBool("isOpen", false);
     }
 }
