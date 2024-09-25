@@ -69,4 +69,11 @@ public class Trigger : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void MoveTrigger()
+    {
+        Vector3 distance = new Vector3(0, 100, 0);
+
+        transform.position += distance;
+    }
 }
