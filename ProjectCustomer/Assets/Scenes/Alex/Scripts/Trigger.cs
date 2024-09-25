@@ -12,6 +12,8 @@ public class Trigger : MonoBehaviour
     public DialogueManager dialogueManager;
     public DialogueTrigger dialogueTrigger;
 
+    public GameObject oldHouseDoor;
+
     [SerializeField] string tagFilterName;
 
     [SerializeField] bool destroyOnTrigger;
@@ -75,5 +77,15 @@ public class Trigger : MonoBehaviour
         Vector3 distance = new Vector3(0, 100, 0);
 
         transform.position += distance;
+    }
+
+    public void OpenDoor()
+    {
+        oldHouseDoor.SetActive(false);
+    }
+
+    public void CloseDoor()
+    {
+        oldHouseDoor.SetActive(true);
     }
 }
