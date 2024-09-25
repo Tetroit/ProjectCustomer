@@ -39,7 +39,7 @@ public class UIDestinationHint : MonoBehaviour
             case GlobalData.MainScriptState.MARKET:
             case GlobalData.MainScriptState.CAFE:
             case GlobalData.MainScriptState.OLD_HOME_DIALOGUE:
-            case GlobalData.MainScriptState.PARK:
+            case GlobalData.MainScriptState.NURSERY:
                 {
                     icon.sprite = destinations[++currentDestination];
                     break;

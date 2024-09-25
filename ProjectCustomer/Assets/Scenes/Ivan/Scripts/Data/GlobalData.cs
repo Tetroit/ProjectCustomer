@@ -68,7 +68,13 @@ public class GlobalData : MonoBehaviour, ISaveData
         if (instance == null)
             instance = this;
         else if (instance != this)
+        {
+            if (instance.teleportLocationPark == null && teleportLocationPark != null)
+                instance.teleportLocationPark = teleportLocationPark;
+            if (instance.teleportLocationNursery == null && teleportLocationNursery != null)
+                instance.teleportLocationNursery = teleportLocationNursery;
             Destroy(this);
+        }
     }
     void Start()
     {
@@ -142,6 +148,10 @@ public class GlobalData : MonoBehaviour, ISaveData
 
             case "BaristaDialogue":
                 UpdateStory(MainScriptState.CAFE);
+                UnlockWallet();
+                break;
+            case "CafeMonologue":
+                UpdateStory(MainScriptState.CAFE_FINISHED);
                 break;
 
             case "ApproachOldHouseDialogue":

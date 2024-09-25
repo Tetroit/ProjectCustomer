@@ -125,7 +125,7 @@ public class MaterialManager : MonoBehaviour
                     SetDestination(DestinationType.CAFE);
                     break;
                 }
-            case GlobalData.MainScriptState.CAFE:
+            case GlobalData.MainScriptState.CAFE_FINISHED:
                 {
                     RemoveDestination(DestinationType.CAFE);
                     SetDestination(DestinationType.OLD_HOME);

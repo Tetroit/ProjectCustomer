@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Wallet : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Wallet : MonoBehaviour
     public Vector3 offPosition = new Vector3 (-0.25f, -0.25f, 0.25f);
     public Vector3 onPosition = new Vector3 (0f,0f,1f);
     Vector3 targetPos;
+    public UnityEvent OnWalletPull;
     void Start()
     {
         targetPos = offPosition;
@@ -48,6 +50,10 @@ public class Wallet : MonoBehaviour
         targetPos = onPosition;
         isOpen = true;
         GameBrain.main.ChangeGameState(GameState.INVENTORY);
+
+        if (GlobalData.instance != null && GlobalData.instance.storyProgress == GlobalData.MainScriptState.CAFE)
+            GlobalData.instance.UpdateStory(GlobalData.MainScriptState.CAFE_WALLET_PULLED);
+        OnWalletPull?.Invoke();
     }
     void Close()
     {
