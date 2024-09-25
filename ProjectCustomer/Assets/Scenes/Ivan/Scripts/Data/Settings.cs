@@ -119,6 +119,10 @@ public class Settings : MonoBehaviour
             {
                 layout.load.onClick.AddListener(Load);
             }
+            if (layout.resetData)
+            {
+                layout.resetData.onClick.AddListener(ResetData);
+            }
         }
     }
 
@@ -201,5 +205,9 @@ public class Settings : MonoBehaviour
     void Load()
     {
         SaveManager.instance.LoadData();
+    }
+    void ResetData()
+    {
+        SaveManager.instance.ResetData();
     }
 }

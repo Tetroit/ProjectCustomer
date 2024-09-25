@@ -27,7 +27,7 @@ namespace MBS.Controller.Scene
         {
             if ( walls == null || walls.Count < 3 )
             {
-                Debug.LogError( Texts.Building.Geometry.AREA_WALL_LESS_THAN_3 );
+                //Debug.LogError( Texts.Building.Geometry.AREA_WALL_LESS_THAN_3 );
                 return;
             }
 
@@ -154,7 +154,7 @@ namespace MBS.Controller.Scene
 
             if ( essentialPointsIndexes == null || essentialPointsIndexes.Count <= 2 )
             {
-                Debug.LogError( Texts.Building.Geometry.AREA_HAS_NO_EXTREME_POINTS );
+                //Debug.LogError( Texts.Building.Geometry.AREA_HAS_NO_EXTREME_POINTS );
                 return null;
             }
 
@@ -209,7 +209,7 @@ namespace MBS.Controller.Scene
         {
             if ( essentialPoints == null || essentialPoints.Length < 3 )
             {
-                Debug.LogError( Texts.Building.Geometry.AREA_HAS_NO_EXTREME_POINTS  );
+                //Debug.LogError( Texts.Building.Geometry.AREA_HAS_NO_EXTREME_POINTS  );
                 return null;
             }
 

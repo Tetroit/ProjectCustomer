@@ -164,15 +164,15 @@ public class GameBrain : MonoBehaviour
         SceneManager.LoadScene(gameScene);
         ChangeGameState(GameState.GAME);
     }
-    public void ExitToMenu()
+    public void ExitToMenu(bool saveGame = true)
     {
-        if (SaveManager.instance)
+        if (SaveManager.instance && saveGame)
         {
             SaveManager.instance.SaveData();
             SaveManager.instance.WriteData();
         }
         CloseSettings();
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("TrueMenu");
         ChangeGameState(GameState.MENU);
     }
     public void ExitToDesktop()
