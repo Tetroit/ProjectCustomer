@@ -13,7 +13,7 @@ public class CameraFade : MonoBehaviour
         new Keyframe(0.5f, 0.5f, -1.5f, -1.5f), new Keyframe(1, 0));
     public bool startFadedOut = false;
 
-    UnityEvent OnFadeIn;
+    public UnityEvent OnFadeIn;
 
 
     private float alpha = 0f;
@@ -36,7 +36,7 @@ public class CameraFade : MonoBehaviour
 
     public void SetTransitionEvent(UnityAction action)
     {
-        OnFadeIn.RemoveAllListeners();
+        OnFadeIn?.RemoveAllListeners();
         OnFadeIn.AddListener(action);
     }
 
@@ -92,8 +92,9 @@ public class CameraFade : MonoBehaviour
     {
         StartCoroutine(Transition());
     }
-    public void StartTransition(UnityAction action)
+    public void StartTransition(UnityAction action, float transitionTime = 1)
     {
+        speedScale = transitionTime;
         SetTransitionEvent(action);
         StartCoroutine(Transition());
     }

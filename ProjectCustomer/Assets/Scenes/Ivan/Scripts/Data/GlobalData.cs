@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -167,7 +168,8 @@ public class GlobalData : MonoBehaviour, ISaveData
 
             case "OldHouseDialogue":
                 UpdateStory(MainScriptState.OLD_HOME_DIALOGUE);
-                cameraFade.StartTransition(delegate { TeleportPlayer(teleportLocationPark); });
+                cameraFade.StartTransition(delegate { TeleportPlayer(teleportLocationPark);});
+                //TeleportPlayer(teleportLocationPark);
                 break;
 
             case "ParkDialogue":
@@ -177,10 +179,17 @@ public class GlobalData : MonoBehaviour, ISaveData
             case "NurseDialogue":
                 UpdateStory(MainScriptState.NURSERY);
                 cameraFade.StartTransition(delegate { TeleportPlayer(teleportLocationNursery); });
+                StartCoroutine(EndGame());
                 break;
         }
     }
 
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(5);
+        GameBrain.main.EndGame();
+        yield return null;
+    }
     private void TeleportPlayer(Transform location)
     {
         GameObject player = GameObject.FindWithTag("Player");

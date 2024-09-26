@@ -16,6 +16,7 @@ public class GameBrain : MonoBehaviour
 {
     public static GameBrain main;
     public AudioSource backgroungMusicPlayer = null;
+    CameraFade cameraFade = null;
     private string _lastScene;
 
     [SerializeField]
@@ -52,6 +53,7 @@ public class GameBrain : MonoBehaviour
             CloseSettings();
         }
         RenderSettings.ambientIntensity = 1.0f;
+        cameraFade = GetComponent<CameraFade>();
     }
 
     void Initialise()
@@ -164,15 +166,31 @@ public class GameBrain : MonoBehaviour
     public void StartCutscene()
     {
         CloseSettings();
-        SceneManager.LoadScene(startCutscene);
+        cameraFade.StartTransition(delegate { SceneManager.LoadScene(startCutscene); }, 1);
         ChangeGameState(GameState.CUTSCENE);
+    }
+    public void LoadGame()
+    {
+        CloseSettings();
+        cameraFade.StartTransition(delegate { SceneManager.LoadScene(gameScene); }, 1);
+        ChangeGameState(GameState.GAME);
     }
     public void StartGame()
     {
-        CloseSettings();
-        SceneManager.LoadScene(gameScene);
-        ChangeGameState(GameState.GAME);
+        if (GlobalData.instance.isCutscenePlayed)
+            LoadGame();
+        else
+            StartCutscene();
     }
+
+    public void EndGame()
+    {
+        ChangeGameState(GameState.CUTSCENE);
+        CloseSettings();
+
+        cameraFade.StartTransition(delegate { SceneManager.LoadScene(titlesScene);}, 5);
+    }
+
     public void ExitToMenu(bool saveGame = true)
     {
         if (SaveManager.instance && saveGame)

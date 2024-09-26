@@ -24,8 +24,9 @@ public class ImageFadeIn : MonoBehaviour
             if (hint != null)
                 hint.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
-                GlobalData.instance.isCutscenePlayed = true;
-                GameBrain.main.StartGame();
+            {
+                GameBrain.main.LoadGame();
+            }
         }
     }
 
@@ -36,7 +37,7 @@ public class ImageFadeIn : MonoBehaviour
             yield return StartCoroutine(FadeIn(image));
             yield return new WaitForSeconds(delayBetweenImages);
         }
-        cutsceneEnded = true;
+        CutsceneEnd();
     }
 
     IEnumerator FadeIn(Image image)
@@ -59,6 +60,8 @@ public class ImageFadeIn : MonoBehaviour
 
     public void CutsceneEnd()
     {
-
+        SaveManager.instance.gameData.isCutscenePlayed = true;
+        GlobalData.instance.isCutscenePlayed = true;
+        cutsceneEnded = true;
     }
 }

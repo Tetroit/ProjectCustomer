@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Ivan/TrueMenu.unity
     guid: 73ff8428f16ea0f4a9be01e55eedce9d
   - enabled: 1
+    path: Assets/Scenes/Luca/scenes/intro.unity
+    guid: 6a110703203981645b9fe027b8dafeaf
+  - enabled: 0
     path: Assets/Scenes/Ivan/amogus.unity
     guid: 89eb1e9ceda350747a7ae353beefd721
+  - enabled: 1
+    path: Assets/Scenes/Sara/demo map.unity
+    guid: 6681f140c286a3145a4e5f0bee82f521
+  - enabled: 1
+    path: Assets/Scenes/Ivan/Titles.unity
+    guid: 689b5a6e484fcc947848066fb577db50
   m_configObjects: {}

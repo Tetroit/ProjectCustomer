@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_oldHOme 1
+  m_Name: M_ParkDecorOutside
   m_Shader: {fileID: -6465566751694194690, guid: 2dbb2df731d476f47a0d5278bf5789b0,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: b55f7827e4ef62946a4cef4d8c4dbe00, type: 2}
+  m_Parent: {fileID: 2100000, guid: cd9dbc408f6f33c4b8b92e04621e6ee4, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _MAIN_LIGHT_SHADOWS
@@ -25,21 +25,12 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _DiffuseTexture:
-        m_Texture: {fileID: 2800000, guid: c0d09398598804d418c202fd16e700b0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalTexture:
-        m_Texture: {fileID: 2800000, guid: 6b901a40878e8204e96861a53ba173b6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _Distance: 50
+    m_Floats: []
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &4909780000993709334
+--- !u!114 &795487422179207073
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public string gameScene;
     void Start()
     {
         Time.timeScale = 1;

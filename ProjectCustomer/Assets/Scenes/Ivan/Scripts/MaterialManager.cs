@@ -33,8 +33,8 @@ public class MaterialManager : MonoBehaviour
             case 5: return DestinationType.CAFE;
             case 6: return DestinationType.MARKET;
             case 7: return DestinationType.PARK;
-            case 8: return DestinationType.OLD_HOME;
-            case 9: return DestinationType.DEFAULT;
+            case 8: return DestinationType.PARK;
+            case 9: return DestinationType.OLD_HOME;
         }
         return DestinationType.DEFAULT;
     }
