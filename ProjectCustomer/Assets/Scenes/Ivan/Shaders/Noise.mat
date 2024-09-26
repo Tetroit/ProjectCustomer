@@ -99,7 +99,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistanceFac: 1
     - _DistancePreview: 0
-    - _DistanceScale: 0.017688924
+    - _DistanceScale: 0.008728343
     - _DistanceShift: -0.2
     - _DstBlend: 0
     - _DstBlendAlpha: 0
@@ -111,7 +111,7 @@ Material:
     - _MovementSensitivity: 0.05
     - _NoisePreview: 0
     - _NoiseResolution: 1000
-    - _NoiseScale: 0.0036411989
+    - _NoiseScale: 0.003914154
     - _NoiseSpeed: 100
     - _OcclusionStrength: 1
     - _Parallax: 0.005
