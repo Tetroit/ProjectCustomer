@@ -28,17 +28,17 @@ public class WalletItem : MonoBehaviour
             RaycastHit hit;
             if (hoverZone.Raycast(mouse, out hit, Camera.main.farClipPlane))
             {
-                if (Input.GetKeyDown(KeyCode.F))
-                    flipped = !flipped;
-                item.localPosition = Vector3.Lerp(item.localPosition, showingOffset, 0.02f);
+                //if (Input.GetKeyDown(KeyCode.F))
+                //    flipped = !flipped;
+                item.localPosition = Vector3.Lerp(item.localPosition, showingOffset, Time.deltaTime * 4f);
             }
             else
-                item.localPosition = Vector3.Lerp(item.localPosition, Vector3.zero, 0.02f);
+                item.localPosition = Vector3.Lerp(item.localPosition, Vector3.zero, Time.deltaTime * 4f);
             
             if (flipped)
-                item.localEulerAngles = Vector3.Lerp(item.localEulerAngles, new Vector3(0, 180, 0), 0.03f);
+                item.localEulerAngles = Vector3.Lerp(item.localEulerAngles, new Vector3(0, 180, 0), Time.deltaTime * 3f);
             else
-                item.localEulerAngles = Vector3.Lerp(item.localEulerAngles, new Vector3(0, 0, 0), 0.03f);
+                item.localEulerAngles = Vector3.Lerp(item.localEulerAngles, new Vector3(0, 0, 0), Time.deltaTime * 3f);
         }
     }
 

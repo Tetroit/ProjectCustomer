@@ -84,7 +84,8 @@ public class PlayerControlsIvan : MonoBehaviour, ISaveData
         }
 
         if (GameBrain.main.gameState == GameState.INVENTORY ||
-            GameBrain.main.gameState == GameState.SETTINGS)
+            GameBrain.main.gameState == GameState.SETTINGS ||
+            GameBrain.main.gameState == GameState.CUTSCENE)
         {
             lockControls = true;
             Move();

@@ -42,7 +42,7 @@ public class Wallet : MonoBehaviour
             transform.localRotation = Quaternion.Euler(-fac.y, fac.x, 0);
         }
 
-        transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, 0.02f);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, Time.deltaTime * 3f);
     }
 
     void Open()
