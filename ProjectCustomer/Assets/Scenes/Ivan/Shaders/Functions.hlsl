@@ -2,7 +2,7 @@
 #define CUSTOM_LIGHTING_INCLUDED
 
 //#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+//#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
 
 void MainLight_float(float3 WorldPos, out float3 Direction, out float3 Color, out float Attenuation, out float ShadowAttenuation)
 {
